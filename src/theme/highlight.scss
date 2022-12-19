@@ -1,0 +1,305 @@
+@import 'utils';
+
+$white: #fff;
+$black: #000;
+$darkgrey: #666;
+$grey: #ececec;
+$grey3: #b2b2b2;
+$grey4: #878786;
+$blue3: #55b8da;
+$blue5: #006489;
+$orange3: #fddf63;
+$orange5: #fddf63;
+$green3: #c9d465;
+$green5: #7da048;
+
+$highlight-custom-color-1: var(--highlight-custom-color-1, $blue3);
+$highlight-custom-color-2: var(--highlight-custom-color-2, $blue5);
+$highlight-custom-color-3: var(--highlight-custom-color-3, $orange3);
+$highlight-custom-color-4: var(--highlight-custom-color-4, $orange5);
+$highlight-custom-color-5: var(--highlight-custom-color-4, $green3);
+$highlight-custom-color-6: var(--highlight-custom-color-4, $green5);
+
+.block.highlight {
+  .teaser-item,
+  .grid-teaser-item {
+    flex-direction: column;
+  }
+
+  .teaser-item.top {
+    a {
+      display: inline;
+    }
+
+    .highlight-image-wrapper {
+      line-height: 0;
+
+      img {
+        width: 100%;
+        height: auto; // important with width+height img attributes
+        aspect-ratio: '16/9';
+        object-fit: cover;
+        object-position: top left;
+      }
+    }
+
+    .highlight-description {
+      padding-bottom: 100px;
+      margin-top: -7px;
+
+      .title {
+        margin-top: 75px;
+
+        h2 {
+          font-size: 48px;
+          font-weight: 700;
+          line-height: 56px;
+          @include word-break();
+        }
+      }
+
+      .description {
+        margin-top: 50px;
+        margin-bottom: 50px;
+
+        p {
+          font-size: 24px;
+          font-weight: 300;
+          line-height: 34px;
+        }
+      }
+
+      .button {
+        a {
+          display: initial;
+          padding: 10px 30px 15px;
+          border: solid;
+          border-width: 1px;
+          border-radius: 0;
+          color: inherit !important;
+          font-size: 16px;
+
+          font-weight: 700;
+          line-height: 30px;
+          text-align: center;
+        }
+      }
+
+      li {
+        a {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  .highlight-description {
+    a[href^="http://"]:not([href^="http://dlr-internet"]):not([href^="http://dlr"]):after,
+    a[href^="https://"]:not([href^="https://dlr-internet"]):not([href^="https://dlr"]):after
+    {
+      content: ' '
+        url("data:image/svg+xml,%3Csvg aria-hidden='true' focusable='false' data-prefix='fas' data-icon='external-link-alt' class='svg-inline--fa fa-external-link-alt fa-w-16' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%23000' d='M432,320H400a16,16,0,0,0-16,16V448H64V128H208a16,16,0,0,0,16-16V80a16,16,0,0,0-16-16H48A48,48,0,0,0,0,112V464a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V336A16,16,0,0,0,432,320ZM488,0h-128c-21.37,0-32.05,25.91-17,41l35.73,35.73L135,320.37a24,24,0,0,0,0,34L157.67,377a24,24,0,0,0,34,0L435.28,133.32,471,169c15,15,41,4.5,41-17V24A24,24,0,0,0,488,0Z'%3E%3C/path%3E%3C/svg%3E");
+    }
+  }
+
+  &.has--descriptionColor--blue3 {
+    .highlight-description {
+      background: $highlight-custom-color-1;
+      color: $black;
+
+      h2,
+      a,
+      p {
+        color: $black;
+      }
+    }
+  }
+
+  &.has--descriptionColor--green3 {
+    .highlight-description {
+      background: $highlight-custom-color-5;
+      color: $black;
+
+      h2,
+      a,
+      p {
+        color: $black;
+      }
+    }
+  }
+
+  &.has--descriptionColor--green5 {
+    .highlight-description {
+      background: $highlight-custom-color-6;
+      color: $black;
+
+      h2,
+      a,
+      p {
+        color: $black;
+      }
+    }
+  }
+
+  &.has--descriptionColor--blue3 {
+    .highlight-description {
+      background: $highlight-custom-color-1;
+      color: $black;
+
+      h2,
+      a,
+      p {
+        color: $black;
+      }
+    }
+  }
+
+  &.has--descriptionColor--blue5 {
+    .highlight-description {
+      background: $highlight-custom-color-2;
+      color: $white;
+
+      h2,
+      a,
+      p {
+        color: $white;
+      }
+
+      a[href^="http://"]:not([href^="http://dlr-internet"]):not([href^="http://dlr"]):after,
+      a[href^="https://"]:not([href^="https://dlr-internet"]):not([href^="https://dlr"]):after
+      {
+        content: ' '
+          url("data:image/svg+xml,%3Csvg aria-hidden='true' focusable='false' data-prefix='fas' data-icon='external-link-alt' class='svg-inline--fa fa-external-link-alt fa-w-16' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%23fff' d='M432,320H400a16,16,0,0,0-16,16V448H64V128H208a16,16,0,0,0,16-16V80a16,16,0,0,0-16-16H48A48,48,0,0,0,0,112V464a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V336A16,16,0,0,0,432,320ZM488,0h-128c-21.37,0-32.05,25.91-17,41l35.73,35.73L135,320.37a24,24,0,0,0,0,34L157.67,377a24,24,0,0,0,34,0L435.28,133.32,471,169c15,15,41,4.5,41-17V24A24,24,0,0,0,488,0Z'%3E%3C/path%3E%3C/svg%3E");
+      }
+    }
+  }
+
+  &.has--descriptionColor--orange3 {
+    .highlight-description {
+      background: $highlight-custom-color-3;
+      color: $black;
+
+      h2,
+      a,
+      p {
+        color: $black;
+      }
+    }
+  }
+}
+
+// TODO: merge with above?
+// Block Highlight Edit
+#page-edit .ui.container,
+#page-add .ui.container {
+  .block-editor-highlight {
+    // The selection of text clashes with the default ::selection,
+    // replacing it with a color more neutral on top of solid color
+    ::selection {
+      background-color: #ccc !important;
+    }
+
+    .highlight-description {
+      a[href^="http://"]:not([href^="http://dlr-internet"]):not([href^="http://dlr"]):after,
+      a[href^="https://"]:not([href^="https://dlr-internet"]):not([href^="https://dlr"]):after
+      {
+        content: ' '
+          url("data:image/svg+xml,%3Csvg aria-hidden='true' focusable='false' data-prefix='fas' data-icon='external-link-alt' class='svg-inline--fa fa-external-link-alt fa-w-16' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%23000' d='M432,320H400a16,16,0,0,0-16,16V448H64V128H208a16,16,0,0,0,16-16V80a16,16,0,0,0-16-16H48A48,48,0,0,0,0,112V464a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V336A16,16,0,0,0,432,320ZM488,0h-128c-21.37,0-32.05,25.91-17,41l35.73,35.73L135,320.37a24,24,0,0,0,0,34L157.67,377a24,24,0,0,0,34,0L435.28,133.32,471,169c15,15,41,4.5,41-17V24A24,24,0,0,0,488,0Z'%3E%3C/path%3E%3C/svg%3E");
+      }
+    }
+
+    &.has--descriptionColor--blue3 {
+      .highlight-description {
+        background: $highlight-custom-color-1;
+        color: $black;
+
+        h2,
+        a,
+        p {
+          color: $black;
+        }
+      }
+    }
+
+    &.has--descriptionColor--green3 {
+      .highlight-description {
+        background: $highlight-custom-color-5;
+        color: $black;
+
+        h2,
+        a,
+        p {
+          color: $black;
+        }
+      }
+    }
+
+    &.has--descriptionColor--green5 {
+      .highlight-description {
+        background: $highlight-custom-color-6;
+        color: $black;
+
+        h2,
+        a,
+        p {
+          color: $black;
+        }
+      }
+    }
+
+    &.has--descriptionColor--blue3 {
+      .highlight-description {
+        background: $highlight-custom-color-1;
+        color: $black;
+
+        h2,
+        a,
+        p {
+          color: $black;
+        }
+      }
+    }
+
+    &.has--descriptionColor--blue5 {
+      .highlight-description {
+        background: $highlight-custom-color-2;
+        color: $white;
+
+        h2,
+        a,
+        p {
+          color: $white;
+        }
+
+        a[href^="http://"]:not([href^="http://dlr-internet"]):not([href^="http://dlr"]):after,
+        a[href^="https://"]:not([href^="https://dlr-internet"]):not([href^="https://dlr"]):after
+        {
+          content: ' '
+            url("data:image/svg+xml,%3Csvg aria-hidden='true' focusable='false' data-prefix='fas' data-icon='external-link-alt' class='svg-inline--fa fa-external-link-alt fa-w-16' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%23fff' d='M432,320H400a16,16,0,0,0-16,16V448H64V128H208a16,16,0,0,0,16-16V80a16,16,0,0,0-16-16H48A48,48,0,0,0,0,112V464a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V336A16,16,0,0,0,432,320ZM488,0h-128c-21.37,0-32.05,25.91-17,41l35.73,35.73L135,320.37a24,24,0,0,0,0,34L157.67,377a24,24,0,0,0,34,0L435.28,133.32,471,169c15,15,41,4.5,41-17V24A24,24,0,0,0,488,0Z'%3E%3C/path%3E%3C/svg%3E");
+        }
+      }
+    }
+
+    &.has--descriptionColor--orange3 {
+      .highlight-description {
+        background: $highlight-custom-color-3;
+        color: $black;
+
+        h2,
+        a,
+        p {
+          color: $black;
+        }
+      }
+    }
+  }
+
+  .block.highlight {
+    max-width: 1440px;
+
+    .no-image-wrapper {
+      display: inline-block;
+      text-align: center;
+    }
+  }
+}
