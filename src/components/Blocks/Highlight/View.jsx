@@ -1,5 +1,4 @@
 import React from 'react';
-import { useIntl } from 'react-intl';
 import cx from 'classnames';
 import { TextBlockView } from '@plone/volto-slate/blocks/Text';
 import { DetachedTextBlockEditor } from '@plone/volto-slate/blocks/Text/DetachedTextBlockEditor';
@@ -11,7 +10,6 @@ import config from '@plone/volto/registry';
 
 const HighlightView = (props) => {
   const { block, className, data, isEditMode, onChangeBlock } = props;
-  const intl = useIntl();
 
   const buttonLink = data?.buttonLink?.[0] ? data?.buttonLink[0]['@id'] : '';
 

@@ -1,9 +1,5 @@
 import { defineMessages } from 'react-intl';
-import { flattenToAppURL, isInternalURL } from '@plone/volto/helpers';
 import { addStyling } from '@plone/volto/helpers/Extensions/withBlockSchemaEnhancer';
-
-import clearSVG from '@plone/volto/icons/clear.svg';
-import navTreeSVG from '@plone/volto/icons/nav.svg';
 
 import config from '@plone/volto/registry';
 
