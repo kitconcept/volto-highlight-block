@@ -69,8 +69,26 @@ const HighlightView = (props) => {
                 'default-size': !fullWidth,
               })}
             >
-              <div className="title">{isEditMode ? <TextLineEdit {...props} renderTag="h2" renderClassName="" fieldDataName="title" properties={{ title: data.title }} /> : <>{data?.title && <h2>{data?.title}</h2>}</>}</div>
-              <div className="description">{isEditMode ? <DetachedTextBlockEditor {...props} /> : <TextBlockView {...props} />}</div>
+              <div className="title">
+                {isEditMode ? (
+                  <TextLineEdit
+                    {...props}
+                    renderTag="h2"
+                    renderClassName=""
+                    fieldDataName="title"
+                    properties={{ title: data.title }}
+                  />
+                ) : (
+                  <>{data?.title && <h2>{data?.title}</h2>}</>
+                )}
+              </div>
+              <div className="description">
+                {isEditMode ? (
+                  <DetachedTextBlockEditor {...props} />
+                ) : (
+                  <TextBlockView {...props} />
+                )}
+              </div>
               <div className="button">
                 {data?.button && (
                   <Button inverted basic as="a" href={buttonLink}>
