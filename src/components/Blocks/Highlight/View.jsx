@@ -36,7 +36,7 @@ const HighlightView = (props) => {
       },
     });
   }
-  const Img = config.getComponent('Img').component;
+  const Img = config.getComponent('Image').component;
 
   return (
     <div
