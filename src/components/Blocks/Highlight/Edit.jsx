@@ -31,7 +31,7 @@ const HighlightEdit = (props) => {
   };
 
   return (
-    <div>
+    <>
       <HighlightView
         {...props}
         url={url}
@@ -41,13 +41,9 @@ const HighlightEdit = (props) => {
         isEditMode
       />
       <SidebarPortal selected={selected}>
-        <HighlightData
-          {...props}
-          onSelectItem={onSelectItem}
-          resetSubmitUrl={resetSubmitUrl}
-        />
+        <HighlightData {...props} />
       </SidebarPortal>
-    </div>
+    </>
   );
 };
 

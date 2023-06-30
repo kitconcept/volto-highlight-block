@@ -6,21 +6,29 @@ $darkgrey: #666;
 $grey: #ececec;
 $grey3: #b2b2b2;
 $grey4: #878786;
-$blue3: #55b8da;
-$blue5: #006489;
-$orange3: #fddf63;
-$orange5: #fddf63;
-$green3: #c9d465;
-$green5: #7da048;
+$medium-blue: #55b8da !default;
+$dark-blue: #006489 !default;
+$light-orange: #fddf63 !default;
+$light-green: #c9d465 !default;
+$dark-green: #7da048 !default;
 
-$highlight-custom-color-1: var(--highlight-custom-color-1, $blue3);
-$highlight-custom-color-2: var(--highlight-custom-color-2, $blue5);
-$highlight-custom-color-3: var(--highlight-custom-color-3, $orange3);
-$highlight-custom-color-4: var(--highlight-custom-color-4, $orange5);
-$highlight-custom-color-5: var(--highlight-custom-color-4, $green3);
-$highlight-custom-color-6: var(--highlight-custom-color-4, $green5);
+$highlight-custom-color-1: var(--highlight-custom-color-1, $medium-blue);
+$highlight-custom-color-2: var(--highlight-custom-color-2, $dark-blue);
+$highlight-custom-color-3: var(--highlight-custom-color-3, $light-orange);
+$highlight-custom-color-4: var(--highlight-custom-color-4, $light-green);
+$highlight-custom-color-5: var(--highlight-custom-color-5, $dark-green);
+
+$highlight-images-aspect-ratio: var(--highlight-images-aspect-ratio, 4/3);
+$highlight-images-object-position: var(
+  --highlight-images-object-position,
+  top left
+);
 
 .block.highlight {
+  .ui.container.padded {
+    padding: 0 40px;
+  }
+
   .teaser-item,
   .grid-teaser-item {
     flex-direction: column;
@@ -37,9 +45,9 @@ $highlight-custom-color-6: var(--highlight-custom-color-4, $green5);
       img {
         width: 100%;
         height: auto; // important with width+height img attributes
-        aspect-ratio: '16/9';
+        aspect-ratio: $highlight-images-aspect-ratio;
         object-fit: cover;
-        object-position: top left;
+        object-position: $highlight-images-object-position;
       }
     }
 
@@ -93,16 +101,7 @@ $highlight-custom-color-6: var(--highlight-custom-color-4, $green5);
     }
   }
 
-  .highlight-description {
-    a[href^="http://"]:not([href^="http://dlr-internet"]):not([href^="http://dlr"]):after,
-    a[href^="https://"]:not([href^="https://dlr-internet"]):not([href^="https://dlr"]):after
-    {
-      content: ' '
-        url("data:image/svg+xml,%3Csvg aria-hidden='true' focusable='false' data-prefix='fas' data-icon='external-link-alt' class='svg-inline--fa fa-external-link-alt fa-w-16' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%23000' d='M432,320H400a16,16,0,0,0-16,16V448H64V128H208a16,16,0,0,0,16-16V80a16,16,0,0,0-16-16H48A48,48,0,0,0,0,112V464a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V336A16,16,0,0,0,432,320ZM488,0h-128c-21.37,0-32.05,25.91-17,41l35.73,35.73L135,320.37a24,24,0,0,0,0,34L157.67,377a24,24,0,0,0,34,0L435.28,133.32,471,169c15,15,41,4.5,41-17V24A24,24,0,0,0,488,0Z'%3E%3C/path%3E%3C/svg%3E");
-    }
-  }
-
-  &.has--descriptionColor--blue3 {
+  &.has--descriptionColor--highlight-custom-color-1 {
     .highlight-description {
       background: $highlight-custom-color-1;
       color: $black;
@@ -115,46 +114,7 @@ $highlight-custom-color-6: var(--highlight-custom-color-4, $green5);
     }
   }
 
-  &.has--descriptionColor--green3 {
-    .highlight-description {
-      background: $highlight-custom-color-5;
-      color: $black;
-
-      h2,
-      a,
-      p {
-        color: $black;
-      }
-    }
-  }
-
-  &.has--descriptionColor--green5 {
-    .highlight-description {
-      background: $highlight-custom-color-6;
-      color: $black;
-
-      h2,
-      a,
-      p {
-        color: $black;
-      }
-    }
-  }
-
-  &.has--descriptionColor--blue3 {
-    .highlight-description {
-      background: $highlight-custom-color-1;
-      color: $black;
-
-      h2,
-      a,
-      p {
-        color: $black;
-      }
-    }
-  }
-
-  &.has--descriptionColor--blue5 {
+  &.has--descriptionColor--highlight-custom-color-2 {
     .highlight-description {
       background: $highlight-custom-color-2;
       color: $white;
@@ -164,19 +124,38 @@ $highlight-custom-color-6: var(--highlight-custom-color-4, $green5);
       p {
         color: $white;
       }
+    }
+  }
 
-      a[href^="http://"]:not([href^="http://dlr-internet"]):not([href^="http://dlr"]):after,
-      a[href^="https://"]:not([href^="https://dlr-internet"]):not([href^="https://dlr"]):after
-      {
-        content: ' '
-          url("data:image/svg+xml,%3Csvg aria-hidden='true' focusable='false' data-prefix='fas' data-icon='external-link-alt' class='svg-inline--fa fa-external-link-alt fa-w-16' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%23fff' d='M432,320H400a16,16,0,0,0-16,16V448H64V128H208a16,16,0,0,0,16-16V80a16,16,0,0,0-16-16H48A48,48,0,0,0,0,112V464a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V336A16,16,0,0,0,432,320ZM488,0h-128c-21.37,0-32.05,25.91-17,41l35.73,35.73L135,320.37a24,24,0,0,0,0,34L157.67,377a24,24,0,0,0,34,0L435.28,133.32,471,169c15,15,41,4.5,41-17V24A24,24,0,0,0,488,0Z'%3E%3C/path%3E%3C/svg%3E");
+  &.has--descriptionColor--highlight-custom-color-3 {
+    .highlight-description {
+      background: $highlight-custom-color-3;
+      color: $black;
+
+      h2,
+      a,
+      p {
+        color: $black;
       }
     }
   }
 
-  &.has--descriptionColor--orange3 {
+  &.has--descriptionColor--highlight-custom-color-4 {
     .highlight-description {
-      background: $highlight-custom-color-3;
+      background: $highlight-custom-color-4;
+      color: $black;
+
+      h2,
+      a,
+      p {
+        color: $black;
+      }
+    }
+  }
+
+  &.has--descriptionColor--highlight-custom-color-5 {
+    .highlight-description {
+      background: $highlight-custom-color-5;
       color: $black;
 
       h2,
@@ -199,16 +178,7 @@ $highlight-custom-color-6: var(--highlight-custom-color-4, $green5);
       background-color: #ccc !important;
     }
 
-    .highlight-description {
-      a[href^="http://"]:not([href^="http://dlr-internet"]):not([href^="http://dlr"]):after,
-      a[href^="https://"]:not([href^="https://dlr-internet"]):not([href^="https://dlr"]):after
-      {
-        content: ' '
-          url("data:image/svg+xml,%3Csvg aria-hidden='true' focusable='false' data-prefix='fas' data-icon='external-link-alt' class='svg-inline--fa fa-external-link-alt fa-w-16' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%23000' d='M432,320H400a16,16,0,0,0-16,16V448H64V128H208a16,16,0,0,0,16-16V80a16,16,0,0,0-16-16H48A48,48,0,0,0,0,112V464a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V336A16,16,0,0,0,432,320ZM488,0h-128c-21.37,0-32.05,25.91-17,41l35.73,35.73L135,320.37a24,24,0,0,0,0,34L157.67,377a24,24,0,0,0,34,0L435.28,133.32,471,169c15,15,41,4.5,41-17V24A24,24,0,0,0,488,0Z'%3E%3C/path%3E%3C/svg%3E");
-      }
-    }
-
-    &.has--descriptionColor--blue3 {
+    &.has--descriptionColor--highlight-custom-color-1 {
       .highlight-description {
         background: $highlight-custom-color-1;
         color: $black;
@@ -221,46 +191,7 @@ $highlight-custom-color-6: var(--highlight-custom-color-4, $green5);
       }
     }
 
-    &.has--descriptionColor--green3 {
-      .highlight-description {
-        background: $highlight-custom-color-5;
-        color: $black;
-
-        h2,
-        a,
-        p {
-          color: $black;
-        }
-      }
-    }
-
-    &.has--descriptionColor--green5 {
-      .highlight-description {
-        background: $highlight-custom-color-6;
-        color: $black;
-
-        h2,
-        a,
-        p {
-          color: $black;
-        }
-      }
-    }
-
-    &.has--descriptionColor--blue3 {
-      .highlight-description {
-        background: $highlight-custom-color-1;
-        color: $black;
-
-        h2,
-        a,
-        p {
-          color: $black;
-        }
-      }
-    }
-
-    &.has--descriptionColor--blue5 {
+    &.has--descriptionColor--highlight-custom-color-2 {
       .highlight-description {
         background: $highlight-custom-color-2;
         color: $white;
@@ -270,19 +201,38 @@ $highlight-custom-color-6: var(--highlight-custom-color-4, $green5);
         p {
           color: $white;
         }
+      }
+    }
 
-        a[href^="http://"]:not([href^="http://dlr-internet"]):not([href^="http://dlr"]):after,
-        a[href^="https://"]:not([href^="https://dlr-internet"]):not([href^="https://dlr"]):after
-        {
-          content: ' '
-            url("data:image/svg+xml,%3Csvg aria-hidden='true' focusable='false' data-prefix='fas' data-icon='external-link-alt' class='svg-inline--fa fa-external-link-alt fa-w-16' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%23fff' d='M432,320H400a16,16,0,0,0-16,16V448H64V128H208a16,16,0,0,0,16-16V80a16,16,0,0,0-16-16H48A48,48,0,0,0,0,112V464a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V336A16,16,0,0,0,432,320ZM488,0h-128c-21.37,0-32.05,25.91-17,41l35.73,35.73L135,320.37a24,24,0,0,0,0,34L157.67,377a24,24,0,0,0,34,0L435.28,133.32,471,169c15,15,41,4.5,41-17V24A24,24,0,0,0,488,0Z'%3E%3C/path%3E%3C/svg%3E");
+    &.has--descriptionColor--highlight-custom-color-3 {
+      .highlight-description {
+        background: $highlight-custom-color-3;
+        color: $black;
+
+        h2,
+        a,
+        p {
+          color: $black;
         }
       }
     }
 
-    &.has--descriptionColor--orange3 {
+    &.has--descriptionColor--highlight-custom-color-4 {
       .highlight-description {
-        background: $highlight-custom-color-3;
+        background: $highlight-custom-color-4;
+        color: $black;
+
+        h2,
+        a,
+        p {
+          color: $black;
+        }
+      }
+    }
+
+    &.has--descriptionColor--highlight-custom-color-5 {
+      .highlight-description {
+        background: $highlight-custom-color-5;
         color: $black;
 
         h2,
@@ -301,5 +251,44 @@ $highlight-custom-color-6: var(--highlight-custom-color-4, $green5);
       display: inline-block;
       text-align: center;
     }
+  }
+}
+
+.color-picker-widget {
+  // Color widget Highlight-Block
+
+  .button.highlight-custom-color-1,
+  .button.highlight-custom-color-1.active,
+  .button.highlight-custom-color-1:hover,
+  .button.active.highlight-custom-color-1:hover {
+    background: $highlight-custom-color-1;
+  }
+
+  .button.highlight-custom-color-2,
+  .button.highlight-custom-color-2.active,
+  .button.highlight-custom-color-2:hover,
+  .button.active.highlight-custom-color-2:hover {
+    background: $highlight-custom-color-2;
+  }
+
+  .button.highlight-custom-color-3,
+  .button.highlight-custom-color-3.active,
+  .button.highlight-custom-color-3:hover,
+  .button.active.highlight-custom-color-3:hover {
+    background: $highlight-custom-color-3;
+  }
+
+  .button.highlight-custom-color-4,
+  .button.highlight-custom-color-4.active,
+  .button.highlight-custom-color-4:hover,
+  .button.active.highlight-custom-color-4:hover {
+    background: $highlight-custom-color-4;
+  }
+
+  .button.highlight-custom-color-5,
+  .button.highlight-custom-color-5.active,
+  .button.highlight-custom-color-5:hover,
+  .button.active.highlight-custom-color-5:hover {
+    background: $highlight-custom-color-5;
   }
 }

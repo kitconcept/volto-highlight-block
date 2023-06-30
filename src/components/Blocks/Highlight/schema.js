@@ -48,8 +48,7 @@ const messages = defineMessages({
 
 export function HighlightSchema(props) {
   const { intl } = props;
-
-  return {
+  let schema = {
     title: props.intl.formatMessage(messages.highlightBlockTitle),
     fieldsets: [
       {
@@ -80,20 +79,19 @@ export function HighlightSchema(props) {
     },
     required: [],
   };
-}
-
-export const HighlightStylingSchema = ({ schema, formData, intl }) => {
-  addStyling({ schema, intl });
 
   const descriptionColors =
-    config.blocks?.blocksConfig?.[formData['@type']]?.descriptionColors;
+    config.blocks?.blocksConfig.highlight.descriptionColors;
+
+  addStyling({ schema, intl });
 
   schema.properties.styles.schema.fieldsets[0].fields = ['descriptionColor'];
   schema.properties.styles.schema.properties.descriptionColor = {
     title: intl.formatMessage(messages.descriptionColor),
     widget: 'color_picker',
     colors: descriptionColors,
-    default: 'blue3',
+    default: 'highlight-custom-color-1',
   };
+
   return schema;
-};
+}
