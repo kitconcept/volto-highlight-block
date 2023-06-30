@@ -8,6 +8,43 @@
 ![kitconcept GmbH](https://github.com/kitconcept/volto-blocks/raw/master/kitconcept.png)
 
 This add-on provides a block that features a big image picked from the images on the site on top and a title and description editable inline.
+It allows also to set colors on the background of the text area. It features five customizable colors by default.
+
+## Customizable colors
+
+You can use CSS custom properties from your theme or add-ons:
+
+```
+.root {
+--highlight-custom-color-1: #eee;
+--highlight-custom-color-2: red;
+--highlight-custom-color-3: yellow;
+--highlight-custom-color-4: brown;
+--highlight-custom-color-5: white;
+}
+```
+
+or even add more via the block's config:
+
+```
+  const CONTENT_COLORS = [
+    { name: 'highlight-custom-color-1', label: 'Medium Blue' },
+    { name: 'highlight-custom-color-2', label: 'Light Orange' },
+    { name: 'highlight-custom-color-3', label: 'Light Green' },
+    { name: 'highlight-custom-color-4', label: 'Blue' },
+    { name: 'highlight-custom-color-5', label: 'Green' },
+  ];
+
+  config.blocks.blocksConfig.highlight = {
+    descriptionColors: CONTENT_COLORS,
+  };
+```
+
+## Screenshots
+
+![Highlight block](https://github.com/kitconcept/volto-highlight-block/raw/main/screenshot.jpg)
+
+![Highlight block - edit mode](https://github.com/kitconcept/volto-highlight-block/raw/main/screenshot-edit.jpg)
 
 ### Prerequisites
 
