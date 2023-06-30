@@ -19,13 +19,61 @@ This add-on provides a block that features a big image picked from the images on
 Run
 
 ````
+make build-addon
+````
+
+or, alternatively for building all and start the dev instances:
+
+Run
+
+````
+make dev
+````
+
+### Start developing
+
+Run
+
+````
 make start-dev
 ````
 
+## Develop locally
+
+Developing locally you lack the `node_modules` folder.
+
+Run
+
+```
+make install-local
+```
+
+It will add `@plone/volto` as a local dependency, and immediatelly back to the original (via git checkout). For this feature to work, your add-on needs to be versioned already. After this action, the ESlint, Prettier, stylelint will work again in your IDE.
+
 ### Stop Backend (Docker)
 
-Run:
+Once you are finished, you should shut down the backend.
+
+Run
 
 ````
 make stop-backend-docker
 ````
+
+## Run Acceptance tests
+
+Run
+
+```
+make start-test-acceptance-server
+```
+
+It starts both the backend and frontend in development mode.
+
+They run in foreground, so for stopping it, press CTRL+C.
+
+For status:
+
+```
+make status-test-acceptance-server
+```
