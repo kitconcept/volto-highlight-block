@@ -3,23 +3,45 @@
   "version": "0.1.0",
   "description": "volto-highlight-block: Volto add-on",
   "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/kitconcept/volto-highlight-block.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kitconcept/volto-highlight-block/issues"
+  },
+  "homepage": "https://github.com/kitconcept/volto-highlight-block#readme",
+  "author": "kitconcept, GmbH",
   "license": "MIT",
   "keywords": [
     "volto-addon",
     "volto",
     "plone",
-    "react"
+    "react",
+    "highlight",
+    "hero"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
-    "i18n": "rm -rf build/messages && NODE_ENV=production i18n --addon"
+    "i18n": "rm -rf build/messages && NODE_ENV=production i18n --addon",
+    "dry-release": "release-it --dry-run",
+    "release": "release-it",
+    "release-major-alpha": "release-it major --preRelease=alpha",
+    "release-alpha": "release-it --preRelease=alpha"
   },
   "devDependencies": {
     "@plone/scripts": "^3.0.0",
     "postcss-scss": "4.0.6",
     "prettier": "2.0.5",
     "razzle-plugin-scss": "4.2.18",
+    "release-it": "15.11.0",
     "stylelint-config-prettier": "9.0.4",
     "stylelint-config-sass-guidelines": "9.0.1",
     "stylelint-prettier": "1.1.2"
+  },
+  "peerDependencies": {
+    "@plone/volto": "^16.0.0"
   }
 }

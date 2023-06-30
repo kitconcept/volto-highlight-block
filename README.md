@@ -7,7 +7,7 @@
 
 ![kitconcept GmbH](https://github.com/kitconcept/volto-blocks/raw/master/kitconcept.png)
 
-This add-on provides a block that features a big image on top and a title and description editable inline.
+This add-on provides a block that features a big image picked from the images on the site on top and a title and description editable inline.
 
 ### Prerequisites
 
