@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import { SidebarPortal } from '@plone/volto/components';
-import { flattenToAppURL } from '@plone/volto/helpers';
-import HighlightData from './Data';
-import HighlightView from './View';
+import React, { useState } from "react";
+import { SidebarPortal } from "@plone/volto/components";
+import { flattenToAppURL } from "@plone/volto/helpers";
+import HighlightData from "./Data";
+import HighlightView from "./View";
 
 const HighlightEdit = (props) => {
   const { selected } = props;
 
-  const [url, setUrl] = useState('');
+  const [url, setUrl] = useState("");
   const resetSubmitUrl = () => {
-    setUrl('');
+    setUrl("");
   };
 
   /**
@@ -31,7 +31,7 @@ const HighlightEdit = (props) => {
   };
 
   return (
-    <div>
+    <>
       <HighlightView
         {...props}
         url={url}
@@ -41,13 +41,9 @@ const HighlightEdit = (props) => {
         isEditMode
       />
       <SidebarPortal selected={selected}>
-        <HighlightData
-          {...props}
-          onSelectItem={onSelectItem}
-          resetSubmitUrl={resetSubmitUrl}
-        />
+        <HighlightData {...props} />
       </SidebarPortal>
-    </div>
+    </>
   );
 };
 
