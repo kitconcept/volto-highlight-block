@@ -43,12 +43,12 @@ start-backend: ## Starts Docker backend
 	${DOCKER_COMPOSE} up backend -d
 
 .PHONY: stop-backend
-stop-backend: ## Stop Docker backend
+stop-backend: ## Stop Docker backend (started automatically with start-dev)
 	@echo "$(GREEN)==> Stop Docker-based Plone Backend $(RESET)"
 	${DOCKER_COMPOSE} stop backend
 
 .PHONY: build-addon
-build-addon: ## Build Addon dev
+build-addon: ## Build Addon dev (required before running start-dev)
 	@echo "$(GREEN)==> Build Addon development container $(RESET)"
 	${DOCKER_COMPOSE} build addon-dev
 
@@ -58,7 +58,7 @@ start-dev: ## Starts Dev container
 	${DOCKER_COMPOSE} up addon-dev
 
 .PHONY: dev
-dev: ## Develop the addon
+dev: ## Develop the addon (all-in-one)
 	@echo "$(GREEN)==> Start Development Environment $(RESET)"
 	make build-backend
 	make start-backend
@@ -71,7 +71,7 @@ help:		## Show this help.
 
 # Dev Helpers
 .PHONY: i18n
-i18n: ## Sync i18n
+i18n: ## Run i18n scripts
 	${DOCKER_COMPOSE} run addon-dev i18n
 
 .PHONY: format
@@ -96,20 +96,20 @@ test-ci: ## Run unit tests in CI
 
 ## Acceptance
 .PHONY: install-acceptance
-install-acceptance: ## Install Cypress, build containers
+install-acceptance: ## Install Cypress, build acceptance containers
 	(cd acceptance && yarn)
 	${ACCEPTANCE} --profile dev --profile prod build
 
 .PHONY: start-test-acceptance-server
-start-test-acceptance-server: ## Start acceptance server
+start-test-acceptance-server: ## Start acceptance server (for use it in while developing)
 	${ACCEPTANCE} --profile dev up
 
 .PHONY: start-test-acceptance-server-prod
-start-test-acceptance-server-prod: ## Start acceptance server in prod
+start-test-acceptance-server-prod: ## Start acceptance server in prod (used by CI)
 	${ACCEPTANCE} --profile prod up -d
 
 .PHONY: test-acceptance
-test-acceptance: ## Start Cypress
+test-acceptance: ## Start Cypress (for use it while developing)
 	(cd acceptance && ./node_modules/.bin/cypress open)
 
 .PHONY: test-acceptance-headless
@@ -117,13 +117,18 @@ test-acceptance-headless: ## Run cypress tests in CI
 	(cd acceptance && ./node_modules/.bin/cypress run)
 
 .PHONY: stop-test-acceptance-server
-stop-test-acceptance-server: ## Stop acceptance server
+stop-test-acceptance-server: ## Stop acceptance server (for use it while finished developing)
 	${ACCEPTANCE} down
 
 .PHONY: status-test-acceptance-server
-status-test-acceptance-server: ## Status of Acceptance Server
+status-test-acceptance-server: ## Status of Acceptance Server (for use it while developing)
 	${ACCEPTANCE} ps
 
 .PHONY: debug-frontend
-debug-frontend:  ## Run bash in the Frontend container
+debug-frontend:  ## Run bash in the Frontend container (for debug infrastructure purposes)
 	${DOCKER_COMPOSE} run --entrypoint bash addon-dev
+
+.PHONY: install-local
+install-local:  ## Installs essentials for developing locally (ESlint, prettier...) (for use it while developing)
+	yarn remove -A @plone/volto && yarn add @plone/volto && git co -- package.json yarn.lock
+	mv .eslintrc.local.js .eslintrc.js

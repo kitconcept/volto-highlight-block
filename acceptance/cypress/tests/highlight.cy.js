@@ -3,7 +3,7 @@ import { getSlateEditorAndType } from '../support/slate';
 context('Highlight Block Acceptance Tests', () => {
   beforeEach(() => {
     cy.visit('/');
-    cy.viewport('macbook-16');
+    // cy.viewport('macbook-16');
     cy.createContent({
       contentType: 'Document',
       contentId: 'document',
