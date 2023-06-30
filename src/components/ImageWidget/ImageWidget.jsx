@@ -1,37 +1,36 @@
-import React, { useState, useEffect } from "react";
-import PropTypes from "prop-types";
-import { useLocation } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { useLocation } from 'react-router-dom';
 import {
   flattenToAppURL,
   getBaseUrl,
   isInternalURL,
   usePrevious,
-} from "@plone/volto/helpers";
-import { FormFieldWrapper, Icon } from "@plone/volto/components";
-import { Button, Dimmer, Input, Loader, Message } from "semantic-ui-react";
-import { useSelector, useDispatch } from "react-redux";
-import loadable from "@loadable/component";
-import { defineMessages, useIntl } from "react-intl";
-import { createContent } from "@plone/volto/actions";
-import { readAsDataURL } from "promise-file-reader";
-import withObjectBrowser from "@plone/volto/components/manage/Sidebar/ObjectBrowser";
-import { UniversalLink } from "@plone/volto/components";
-import config from "@plone/volto/registry";
+} from '@plone/volto/helpers';
+import { FormFieldWrapper, Icon } from '@plone/volto/components';
+import { Button, Dimmer, Input, Loader, Message } from 'semantic-ui-react';
+import { useSelector, useDispatch } from 'react-redux';
+import loadable from '@loadable/component';
+import { defineMessages, useIntl } from 'react-intl';
+import { createContent } from '@plone/volto/actions';
+import { readAsDataURL } from 'promise-file-reader';
+import withObjectBrowser from '@plone/volto/components/manage/Sidebar/ObjectBrowser';
+import { UniversalLink } from '@plone/volto/components';
 
-import imageBlockSVG from "@plone/volto/components/manage/Blocks/Image/block-image.svg";
-import clearSVG from "@plone/volto/icons/clear.svg";
-import navTreeSVG from "@plone/volto/icons/nav.svg";
-import aheadSVG from "@plone/volto/icons/ahead.svg";
-import uploadSVG from "@plone/volto/icons/upload.svg";
-import openinnewtabSVG from "../../icons/openinnewtab.svg";
-import useTraceUpdate from "./useTraceUpdate";
+import imageBlockSVG from '@plone/volto/components/manage/Blocks/Image/block-image.svg';
+import clearSVG from '@plone/volto/icons/clear.svg';
+import navTreeSVG from '@plone/volto/icons/nav.svg';
+import aheadSVG from '@plone/volto/icons/ahead.svg';
+import uploadSVG from '@plone/volto/icons/upload.svg';
+import openinnewtabSVG from '../../icons/openinnewtab.svg';
+import useTraceUpdate from './useTraceUpdate';
 
-const Dropzone = loadable(() => import("react-dropzone"));
+const Dropzone = loadable(() => import('react-dropzone'));
 
 const messages = defineMessages({
   ImageBlockInputPlaceholder: {
-    id: "Browse the site, drop an image, or type an URL",
-    defaultMessage: "Browse the site, drop an image, or type an URL",
+    id: 'Browse the site, drop an image, or type an URL',
+    defaultMessage: 'Browse the site, drop an image, or type an URL',
   },
 });
 
@@ -40,7 +39,7 @@ const ImagePreview = ({ src }) => (
     {isInternalURL(src) ? (
       <img src={`${flattenToAppURL(src)}/@@images/image/preview`} alt="" />
     ) : (
-      <img src={src} alt="" style={{ width: "100%" }} />
+      <img src={src} alt="" style={{ width: '100%' }} />
     )}
   </>
 );
@@ -62,15 +61,15 @@ const ImageWidget = (props) => {
     props.placeholder ||
     intl.formatMessage(messages.ImageBlockInputPlaceholder);
 
-  const [url, setUrl] = useState("");
+  const [url, setUrl] = useState('');
   const [dragging, setDragging] = useState(false);
   const [uploading, setUploading] = useState(false);
-  let loading = "";
+  let loading = '';
   const dispatch = useDispatch();
 
   const request = useSelector((state) => state.content.subrequests[block]);
   const content = request?.data;
-  const urlUploaded = content ? content["@id"] : null;
+  const urlUploaded = content ? content['@id'] : null;
   const requestLoaded = request ? request.loaded : null;
 
   useEffect(() => {
@@ -98,17 +97,17 @@ const ImageWidget = (props) => {
         createContent(
           getBaseUrl(pathname),
           {
-            "@type": "Image",
+            '@type': 'Image',
             title: file.name,
             image: {
               data: fields[3],
               encoding: fields[2],
-              "content-type": fields[1],
+              'content-type': fields[1],
               filename: file.name,
             },
           },
-          block
-        )
+          block,
+        ),
       );
     });
   };
@@ -137,17 +136,17 @@ const ImageWidget = (props) => {
         createContent(
           getBaseUrl(pathname),
           {
-            "@type": "Image",
+            '@type': 'Image',
             title: file[0].name,
             image: {
               data: fields[3],
               encoding: fields[2],
-              "content-type": fields[1],
+              'content-type': fields[1],
               filename: file[0].name,
             },
           },
-          block
-        )
+          block,
+        ),
       );
     });
   };
@@ -179,11 +178,11 @@ const ImageWidget = (props) => {
    * @returns {undefined}
    */
   const onKeyDownVariantMenuForm = (e) => {
-    if (e.key === "Enter") {
+    if (e.key === 'Enter') {
       e.preventDefault();
       e.stopPropagation();
       onSubmitUrl();
-    } else if (e.key === "Escape") {
+    } else if (e.key === 'Escape') {
       e.preventDefault();
       e.stopPropagation();
       // TODO: Do something on ESC key
@@ -249,9 +248,9 @@ const ImageWidget = (props) => {
                         <Icon name={uploadSVG} size="24px" />
                         <input
                           {...getInputProps({
-                            type: "file",
+                            type: 'file',
                             onChange: onUploadImage,
-                            style: { display: "none" },
+                            style: { display: 'none' },
                           })}
                         />
                       </label>
@@ -275,8 +274,8 @@ const ImageWidget = (props) => {
                           className="cancel"
                           onClick={(e) => {
                             e.stopPropagation();
-                            setUrl("");
-                            onChange(id, "");
+                            setUrl('');
+                            onChange(id, '');
                           }}
                         >
                           <Icon name={clearSVG} size="30px" />
@@ -311,8 +310,8 @@ const ImageWidget = (props) => {
                 basic
                 icon
                 onClick={(e) => {
-                  setUrl("");
-                  onChange(id, "");
+                  setUrl('');
+                  onChange(id, '');
                 }}
                 className="remove-block-button"
               >

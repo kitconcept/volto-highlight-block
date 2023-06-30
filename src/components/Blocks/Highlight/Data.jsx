@@ -1,8 +1,8 @@
-import React from "react";
-import { useIntl } from "react-intl";
-import { BlockDataForm } from "@plone/volto/components";
+import React from 'react';
+import { useIntl } from 'react-intl';
+import { BlockDataForm } from '@plone/volto/components';
 
-import { HighlightSchema } from "./schema";
+import { HighlightSchema } from './schema';
 
 const HighlightData = (props) => {
   const { block, blocksConfig, data, onChangeBlock } = props;

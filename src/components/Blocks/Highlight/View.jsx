@@ -1,42 +1,39 @@
-import React from "react";
-import cx from "classnames";
-import { TextBlockView } from "@plone/volto-slate/blocks/Text";
-import { DetachedTextBlockEditor } from "@plone/volto-slate/blocks/Text/DetachedTextBlockEditor";
-import TextLineEdit from "@plone/volto/components/manage/TextLineEdit/TextLineEdit";
-import ImageWidget from "../../ImageWidget/ImageWidget";
-import { flattenToAppURL, isInternalURL } from "@plone/volto/helpers";
-import { Container as SemanticContainer, Button } from "semantic-ui-react";
-import config from "@plone/volto/registry";
+import React from 'react';
+import cx from 'classnames';
+import { TextBlockView } from '@plone/volto-slate/blocks/Text';
+import { DetachedTextBlockEditor } from '@plone/volto-slate/blocks/Text/DetachedTextBlockEditor';
+import TextLineEdit from '@plone/volto/components/manage/TextLineEdit/TextLineEdit';
+import ImageWidget from '../../ImageWidget/ImageWidget';
+import { flattenToAppURL, isInternalURL } from '@plone/volto/helpers';
+import { Container as SemanticContainer, Button } from 'semantic-ui-react';
+import config from '@plone/volto/registry';
 
 const HighlightView = (props) => {
   const { block, className, data, isEditMode, onChangeBlock } = props;
 
-  const buttonLink = data?.buttonLink?.[0] ? data?.buttonLink[0]["@id"] : "";
+  const buttonLink = data?.buttonLink?.[0] ? data?.buttonLink[0]['@id'] : '';
 
   let renderedImage = null;
   if (data.url) {
-    let Image = config.getComponent("Image").component;
+    let Image = config.getComponent('Image').component;
     if (Image) {
       // custom image component expects item summary as src
-      renderedImage = (
-        <Image src={imageOverride || href} alt="" loading="lazy" />
-      );
+      renderedImage = <Image src={data.url} alt="" loading="lazy" />;
     } else {
       // default img expects string src
-
       renderedImage = (
         <img
           src={
             isInternalURL(data.url)
               ? // Backwards compat in the case that the block is storing the full server URL
                 (() => {
-                  if (data.size === "l")
+                  if (data.size === 'l')
                     return `${flattenToAppURL(data.url)}/@@images/image`;
-                  if (data.size === "m")
+                  if (data.size === 'm')
                     return `${flattenToAppURL(
-                      data.url
+                      data.url,
                     )}/@@images/image/preview`;
-                  if (data.size === "s")
+                  if (data.size === 's')
                     return `${flattenToAppURL(data.url)}/@@images/image/mini`;
                   return `${flattenToAppURL(data.url)}/@@images/image`;
                 })()
@@ -49,18 +46,18 @@ const HighlightView = (props) => {
     }
   }
 
-  const customContainer = config.getComponent({ name: "Container" }).component;
+  const customContainer = config.getComponent({ name: 'Container' }).component;
 
   const Container = customContainer || SemanticContainer;
 
   return (
-    <div className={cx("block highlight", className)}>
+    <div className={cx('block highlight', className)}>
       {data.url ? (
         <div className="teaser-item top">
           <div className="highlight-image-wrapper">{renderedImage}</div>
-          <div className={cx("highlight-description")}>
+          <div className={cx('highlight-description')}>
             <Container
-              className={cx("teaser-description-title", {
+              className={cx('teaser-description-title', {
                 padded: !customContainer,
               })}
             >
