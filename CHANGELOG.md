@@ -7,3 +7,11 @@
 -->
 
 <!-- towncrier release notes start -->
+
+## 1.0.0 (2023-06-30)
+
+### Feature
+
+- New docker approach for testing @sneridagh [#2](https://github.com/kitconcept/volto-highlight-block/pull/2)
+- Acceptance tests @sneridagh [#3](https://github.com/kitconcept/volto-highlight-block/pull/3)
+- Improve README, add screenshots @sneridagh [#4](https://github.com/kitconcept/volto-highlight-block/pull/4)
