@@ -23,7 +23,6 @@ import navTreeSVG from '@plone/volto/icons/nav.svg';
 import aheadSVG from '@plone/volto/icons/ahead.svg';
 import uploadSVG from '@plone/volto/icons/upload.svg';
 import openinnewtabSVG from '../../icons/openinnewtab.svg';
-import useTraceUpdate from './useTraceUpdate';
 
 const Dropzone = loadable(() => import('react-dropzone'));
 
@@ -31,6 +30,10 @@ const messages = defineMessages({
   ImageBlockInputPlaceholder: {
     id: 'Browse the site, drop an image, or type an URL',
     defaultMessage: 'Browse the site, drop an image, or type an URL',
+  },
+  navigate: {
+    id: 'Browse the site',
+    defaultMessage: 'Browse the site',
   },
 });
 
@@ -189,8 +192,6 @@ const ImageWidget = (props) => {
     }
   };
 
-  useTraceUpdate(props);
-
   return (
     <div className="image-widget">
       {!inline ? (
@@ -228,7 +229,9 @@ const ImageWidget = (props) => {
                   <img src={imageBlockSVG} alt="" />
                   <div className="toolbar-inner">
                     <Button.Group>
+                      asds
                       <Button
+                        aria-label={intl.formatMessage(messages.navigate)}
                         basic
                         icon
                         onClick={(e) => {

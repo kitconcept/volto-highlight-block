@@ -102,10 +102,10 @@ install-acceptance: ## Install Cypress, build containers
 
 .PHONY: start-test-acceptance-server
 start-test-acceptance-server: ## Start acceptance server
-	${ACCEPTANCE} --profile dev up -d
+	${ACCEPTANCE} --profile dev up
 
 .PHONY: start-test-acceptance-server-prod
-start-test-acceptance-server-prod: ## Start acceptance server
+start-test-acceptance-server-prod: ## Start acceptance server in prod
 	${ACCEPTANCE} --profile prod up -d
 
 .PHONY: test-acceptance
