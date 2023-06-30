@@ -15,6 +15,7 @@ services:
     environment:
       RAZZLE_INTERNAL_API_PATH: http://backend-acceptance:55001/plone
       RAZZLE_API_PATH: http://localhost:55001/plone
+      HOST: 0.0.0.0
     ports:
       - 3000:3000
       - 3001:3001
