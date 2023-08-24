@@ -8,7 +8,7 @@
 ![kitconcept GmbH](https://github.com/kitconcept/volto-blocks/raw/master/kitconcept.png)
 
 This add-on provides a block that features a big image picked from the images on the site on top and a title and description editable inline.
-It allows also to set colors on the background of the text area. It features five customizable colors by default.
+It allows also to set colors on the background of the text area. It features five customizable colors by default. See the block in action: [www.dlr.de](https://www.dlr.de/de/das-dlr).
 
 ## Customizable colors
 
