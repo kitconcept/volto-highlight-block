@@ -1,0 +1,2 @@
+Adapt to Volto 17 Image component @sneridagh
+Use `image` (object) instead of `url` (string) as reference for the selected image. @sneridagh
