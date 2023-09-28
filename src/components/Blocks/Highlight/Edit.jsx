@@ -26,6 +26,7 @@ const HighlightEdit = (props) => {
     props.onChangeBlock(props.block, {
       ...props.data,
       url: flattenToAppURL(url),
+      image_field: 'image',
       image_scales: item.image_scales,
     });
   };
@@ -36,7 +37,6 @@ const HighlightEdit = (props) => {
         {...props}
         url={url}
         onChangeUrl={onChangeUrl}
-        onSelectItem={onSelectItem}
         resetSubmitUrl={resetSubmitUrl}
         isEditMode
       />
