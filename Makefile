@@ -22,7 +22,7 @@ RESET=`tput sgr0`
 YELLOW=`tput setaf 3`
 
 PLONE_VERSION=6
-VOLTO_VERSION=17.0.0-alpha.16
+VOLTO_VERSION=17.0.0-alpha.27
 
 ADDON_NAME='@kitconcept/volto-highlight-block'
 ADDON_PATH='volto-highlight-block'
@@ -55,7 +55,7 @@ build-addon: ## Build Addon dev (required before running start-dev)
 .PHONY: start-dev
 start-dev: ## Starts Dev container
 	@echo "$(GREEN)==> Start Addon Development container $(RESET)"
-	${DOCKER_COMPOSE} up addon-dev
+	${DOCKER_COMPOSE} up addon-dev backend
 
 .PHONY: dev
 dev: ## Develop the addon (all-in-one)

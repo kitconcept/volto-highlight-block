@@ -72,15 +72,21 @@ const ImageWidget = (props) => {
 
   const request = useSelector((state) => state.content.subrequests[block]);
   const content = request?.data;
-  const urlUploaded = content ? content['@id'] : null;
   const requestLoaded = request ? request.loaded : null;
 
   useEffect(() => {
+    const imageUploaded = content
+      ? {
+          '@id': content['@id'],
+          image_field: 'image',
+          image_scales: { image: [content?.image] },
+        }
+      : null;
     if (loading && requestLoaded && uploading) {
       setUploading(false);
-      onChange(id, urlUploaded);
+      onChange(id, imageUploaded);
     }
-  }, [id, urlUploaded, requestLoaded, loading, uploading, onChange]);
+  }, [id, content, requestLoaded, loading, uploading, onChange]);
 
   loading = usePrevious(request?.loading);
 
@@ -113,16 +119,6 @@ const ImageWidget = (props) => {
         ),
       );
     });
-  };
-
-  /**
-   * Submit url handler
-   * @method onSubmitUrl
-   * @param {object} e Event
-   * @returns {undefined}
-   */
-  const onSubmitUrl = () => {
-    onChange(id, url);
   };
 
   /**
@@ -163,6 +159,18 @@ const ImageWidget = (props) => {
   };
 
   /**
+   * Submit url handler
+   * @method onSubmitUrl
+   * @param {object} e Event
+   * @returns {undefined}
+   */
+  const onSubmitUrl = () => {
+    onChange(id, {
+      '@id': url,
+    });
+  };
+
+  /**
    * Change url handler
    * @method onChangeUrl
    * @param {Object} target Target object
@@ -198,9 +206,9 @@ const ImageWidget = (props) => {
         <FormFieldWrapper {...props} noForInFieldLabel className="image">
           {value ? (
             <div className="image-widget-filepath-preview">
-              {flattenToAppURL(value)}&nbsp;
+              {flattenToAppURL(value['@id'])}&nbsp;
               {isInternalURL ? (
-                <UniversalLink href={value} openLinkInNewTab>
+                <UniversalLink href={value['@id']} openLinkInNewTab>
                   <Icon name={openinnewtabSVG} size="16px" />
                 </UniversalLink>
               ) : null}
@@ -238,8 +246,14 @@ const ImageWidget = (props) => {
                           e.stopPropagation();
                           e.preventDefault();
                           openObjectBrowser({
-                            onSelectItem: (url, item) =>
-                              onChange(id, url, item),
+                            onSelectItem: (url, image) => {
+                              onChange(id, {
+                                '@id': image['@id'],
+                                image_field: 'image',
+                                // Always a catalog entry here
+                                image_scales: image.image_scales,
+                              });
+                            },
                           });
                         }}
                       >
@@ -320,7 +334,7 @@ const ImageWidget = (props) => {
               >
                 <Icon name={clearSVG} className="circled" size="24px" />
               </Button>
-              <ImagePreview src={value} />
+              <ImagePreview src={value['@id']} />
             </div>
           ) : null}
         </>
@@ -331,7 +345,6 @@ const ImageWidget = (props) => {
 
 ImageWidget.propTypes = {
   onChange: PropTypes.func.isRequired,
-  value: PropTypes.string,
   id: PropTypes.string.isRequired,
   inline: PropTypes.bool,
 };

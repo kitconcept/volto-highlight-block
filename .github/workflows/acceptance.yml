@@ -4,7 +4,7 @@ on: [push]
 env:
   ADDON_NAME: "@kitconcept/volto-highlight-block"
   ADDON_PATH: "volto-highlight-block"
-  VOLTO_VERSION: "17.0.0-alpha.16"
+  VOLTO_VERSION: "17.0.0-alpha.27"
 
 jobs:
 

@@ -32,16 +32,17 @@
     "release-alpha": "release-it --preRelease=alpha"
   },
   "devDependencies": {
+    "@babel/eslint-parser": "7.22.15",
     "@plone/scripts": "^3.0.0",
-    "postcss-scss": "4.0.6",
+    "postcss-scss": "4.0.8",
     "prettier": "2.0.5",
-    "razzle-plugin-scss": "4.2.18",
-    "release-it": "15.11.0",
-    "stylelint-config-prettier": "9.0.4",
-    "stylelint-config-sass-guidelines": "9.0.1",
-    "stylelint-prettier": "1.1.2"
+    "release-it": "^16.1.5",
+    "stylelint": "15.10.3",
+    "stylelint-config-idiomatic-order": "9.0.0",
+    "stylelint-config-sass-guidelines": "10.0.0",
+    "stylelint-prettier": "4.0.2"
   },
   "peerDependencies": {
-    "@plone/volto": "^16.0.0"
+    "@plone/volto": "^17.0.0"
   }
 }

@@ -14,30 +14,28 @@ const HighlightView = (props) => {
   const buttonLink = data?.buttonLink?.[0] ? data?.buttonLink[0]['@id'] : '';
 
   let renderedImage = null;
-  if (data.url) {
+  if (data.image) {
     let Image = config.getComponent('Image').component;
     if (Image) {
       // custom image component expects item summary as src
-      renderedImage = <Image src={data.url} alt="" loading="lazy" />;
+      renderedImage = (
+        <Image
+          item={data.image.image_scales ? data.image : null}
+          src={!data.image.image_scales ? data.image['@id'] : null}
+          alt=""
+          loading="lazy"
+          responsive={true}
+        />
+      );
     } else {
       // default img expects string src
       renderedImage = (
         <img
           src={
-            isInternalURL(data.url)
+            isInternalURL(data.image['@id'])
               ? // Backwards compat in the case that the block is storing the full server URL
-                (() => {
-                  if (data.size === 'l')
-                    return `${flattenToAppURL(data.url)}/@@images/image`;
-                  if (data.size === 'm')
-                    return `${flattenToAppURL(
-                      data.url,
-                    )}/@@images/image/preview`;
-                  if (data.size === 's')
-                    return `${flattenToAppURL(data.url)}/@@images/image/mini`;
-                  return `${flattenToAppURL(data.url)}/@@images/image`;
-                })()
-              : data.url
+                `${flattenToAppURL(data.image['@id'])}/@@images/image`
+              : data.image['@id']
           }
           alt=""
           loading="lazy"
@@ -52,7 +50,7 @@ const HighlightView = (props) => {
 
   return (
     <div className={cx('block highlight', className)}>
-      {data.url ? (
+      {data.image ? (
         <div className="teaser-item top">
           <div className="highlight-image-wrapper">{renderedImage}</div>
           <div className={cx('highlight-description')}>
@@ -99,7 +97,8 @@ const HighlightView = (props) => {
               inline
               // Since we are using a component that has a widget interface
               // we need to adapt its props to it
-              id="url"
+              id="image"
+              // This is called in case of the inline widget (eg. NOT the sidebar form)
               onChange={(id, value) => {
                 onChangeBlock(block, {
                   ...data,

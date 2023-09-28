@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { SidebarPortal } from '@plone/volto/components';
-import { flattenToAppURL } from '@plone/volto/helpers';
 import HighlightData from './Data';
 import HighlightView from './View';
 
@@ -22,21 +21,12 @@ const HighlightEdit = (props) => {
     setUrl(target.value);
   };
 
-  const onSelectItem = (url, item) => {
-    props.onChangeBlock(props.block, {
-      ...props.data,
-      url: flattenToAppURL(url),
-      image_scales: item.image_scales,
-    });
-  };
-
   return (
     <>
       <HighlightView
         {...props}
         url={url}
         onChangeUrl={onChangeUrl}
-        onSelectItem={onSelectItem}
         resetSubmitUrl={resetSubmitUrl}
         isEditMode
       />

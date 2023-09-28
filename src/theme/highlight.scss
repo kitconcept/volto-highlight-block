@@ -169,8 +169,8 @@ $highlight-images-object-position: var(
 
 // TODO: merge with above?
 // Block Highlight Edit
-#page-edit .ui.container,
-#page-add .ui.container {
+#page-edit,
+#page-add {
   .block-editor-highlight {
     // The selection of text clashes with the default ::selection,
     // replacing it with a color more neutral on top of solid color
