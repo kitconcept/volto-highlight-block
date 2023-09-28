@@ -8,6 +8,14 @@
 
 <!-- towncrier release notes start -->
 
+## 2.0.0 (2023-09-28)
+
+### Breaking
+
+- Adapt to Volto 17 Image component @sneridagh
+  Use `image` (object) instead of `url` (string) as reference for the selected image. @sneridagh [#6](https://github.com/kitconcept/volto-highlight-block/pull/6)
+
+
 ## 1.0.0 (2023-06-30)
 
 ### Feature
