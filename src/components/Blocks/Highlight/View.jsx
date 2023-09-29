@@ -6,22 +6,42 @@ import TextLineEdit from '@plone/volto/components/manage/TextLineEdit/TextLineEd
 import ImageWidget from '../../ImageWidget/ImageWidget';
 import { flattenToAppURL, isInternalURL } from '@plone/volto/helpers';
 import { Container as SemanticContainer, Button } from 'semantic-ui-react';
+import { useSelector } from 'react-redux';
 import config from '@plone/volto/registry';
 
 const HighlightView = (props) => {
-  const { block, className, data, isEditMode, onChangeBlock } = props;
+  const {
+    block,
+    blocksConfig,
+    className,
+    data,
+    isEditMode,
+    onChangeBlock,
+  } = props;
+
+  const dataAdapter = blocksConfig.highlight.dataAdapter;
+  const request = useSelector((state) => state.content.subrequests[block]);
+  const content = request?.data;
 
   const buttonLink = data?.buttonLink?.[0] ? data?.buttonLink[0]['@id'] : '';
 
   let renderedImage = null;
-  if (data.image) {
+  if (data.url) {
     let Image = config.getComponent('Image').component;
     if (Image) {
       // custom image component expects item summary as src
       renderedImage = (
         <Image
-          item={data.image.image_scales ? data.image : null}
-          src={!data.image.image_scales ? data.image['@id'] : null}
+          item={
+            data.image_scales
+              ? {
+                  '@id': data.url,
+                  image_field: data.image_field,
+                  image_scales: data.image_scales,
+                }
+              : null
+          }
+          src={!data.image_scales ? data.url : null}
           alt=""
           loading="lazy"
           responsive={true}
@@ -32,10 +52,10 @@ const HighlightView = (props) => {
       renderedImage = (
         <img
           src={
-            isInternalURL(data.image['@id'])
+            isInternalURL(data.url['@id'])
               ? // Backwards compat in the case that the block is storing the full server URL
-                `${flattenToAppURL(data.image['@id'])}/@@images/image`
-              : data.image['@id']
+                `${flattenToAppURL(data.url['@id'])}/@@images/image`
+              : data.url['@id']
           }
           alt=""
           loading="lazy"
@@ -50,7 +70,7 @@ const HighlightView = (props) => {
 
   return (
     <div className={cx('block highlight', className)}>
-      {data.image ? (
+      {data.url ? (
         <div className="teaser-item top">
           <div className="highlight-image-wrapper">{renderedImage}</div>
           <div className={cx('highlight-description')}>
@@ -97,12 +117,16 @@ const HighlightView = (props) => {
               inline
               // Since we are using a component that has a widget interface
               // we need to adapt its props to it
-              id="image"
+              id="url"
               // This is called in case of the inline widget (eg. NOT the sidebar form)
               onChange={(id, value) => {
-                onChangeBlock(block, {
-                  ...data,
-                  [id]: value,
+                dataAdapter({
+                  block,
+                  data,
+                  id,
+                  onChangeBlock,
+                  value,
+                  content,
                 });
               }}
             />
