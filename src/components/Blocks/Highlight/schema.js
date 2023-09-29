@@ -54,11 +54,11 @@ export function HighlightSchema(props) {
       {
         id: 'default',
         title: 'Default',
-        fields: ['image', 'button', 'buttonLink', 'buttonText'],
+        fields: ['url', 'button', 'buttonLink', 'buttonText'],
       },
     ],
     properties: {
-      image: {
+      url: {
         title: intl.formatMessage(messages.image),
         widget: 'image',
       },

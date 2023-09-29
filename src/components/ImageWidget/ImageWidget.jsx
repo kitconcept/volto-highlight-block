@@ -72,21 +72,15 @@ const ImageWidget = (props) => {
 
   const request = useSelector((state) => state.content.subrequests[block]);
   const content = request?.data;
+  const urlUploaded = content ? content['@id'] : null;
   const requestLoaded = request ? request.loaded : null;
 
   useEffect(() => {
-    const imageUploaded = content
-      ? {
-          '@id': content['@id'],
-          image_field: 'image',
-          image_scales: { image: [content?.image] },
-        }
-      : null;
     if (loading && requestLoaded && uploading) {
       setUploading(false);
-      onChange(id, imageUploaded);
+      onChange(id, urlUploaded);
     }
-  }, [id, content, requestLoaded, loading, uploading, onChange]);
+  }, [id, urlUploaded, requestLoaded, loading, uploading, onChange]);
 
   loading = usePrevious(request?.loading);
 
@@ -206,9 +200,9 @@ const ImageWidget = (props) => {
         <FormFieldWrapper {...props} noForInFieldLabel className="image">
           {value ? (
             <div className="image-widget-filepath-preview">
-              {flattenToAppURL(value['@id'])}&nbsp;
+              {flattenToAppURL(value)}&nbsp;
               {isInternalURL ? (
-                <UniversalLink href={value['@id']} openLinkInNewTab>
+                <UniversalLink href={value} openLinkInNewTab>
                   <Icon name={openinnewtabSVG} size="16px" />
                 </UniversalLink>
               ) : null}
@@ -247,12 +241,7 @@ const ImageWidget = (props) => {
                           e.preventDefault();
                           openObjectBrowser({
                             onSelectItem: (url, image) => {
-                              onChange(id, {
-                                '@id': image['@id'],
-                                image_field: 'image',
-                                // Always a catalog entry here
-                                image_scales: image.image_scales,
-                              });
+                              onChange(id, image);
                             },
                           });
                         }}
@@ -334,7 +323,7 @@ const ImageWidget = (props) => {
               >
                 <Icon name={clearSVG} className="circled" size="24px" />
               </Button>
-              <ImagePreview src={value['@id']} />
+              <ImagePreview src={value} />
             </div>
           ) : null}
         </>
