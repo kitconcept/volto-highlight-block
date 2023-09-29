@@ -8,6 +8,15 @@
 
 <!-- towncrier release notes start -->
 
+## 3.0.0 (2023-09-29)
+
+### Breaking
+
+- Revert change name field, return to `url` because the transformers hooks into that. Adjust code to it, fix bugs. @sneridagh
+
+  **Warning** Do not use `2.0.0`, it's a brownbag release. [#7](https://github.com/kitconcept/volto-highlight-block/pull/7)
+
+
 ## 2.0.0 (2023-09-28)
 
 ### Breaking
