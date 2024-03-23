@@ -8,6 +8,12 @@
 
 <!-- towncrier release notes start -->
 
+## 3.0.1 (2024-03-23)
+
+### Internal
+
+- Repackage with updated deps and peerDeps @sneridagh [#0](https://github.com/kitconcept/volto-highlight-block/pull/0)
+
 ## 3.0.0 (2023-09-29)
 
 ### Breaking

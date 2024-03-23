@@ -1,6 +1,6 @@
 {
   "name": "@kitconcept/volto-highlight-block",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "volto-highlight-block: Volto add-on",
   "main": "src/index.js",
   "repository": {
