@@ -1,4 +1,4 @@
-import { getSlateEditorAndType } from '../support/slate';
+import { getSlateEditorAndType } from '@plone/volto/cypress/support/helpers';
 
 context('Highlight Block Acceptance Tests', () => {
   beforeEach(() => {

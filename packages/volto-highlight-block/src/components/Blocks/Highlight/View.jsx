@@ -10,14 +10,8 @@ import { useSelector } from 'react-redux';
 import config from '@plone/volto/registry';
 
 const HighlightView = (props) => {
-  const {
-    block,
-    blocksConfig,
-    className,
-    data,
-    isEditMode,
-    onChangeBlock,
-  } = props;
+  const { block, blocksConfig, className, data, isEditMode, onChangeBlock } =
+    props;
 
   const dataAdapter = blocksConfig.highlight.dataAdapter;
   const request = useSelector((state) => state.content.subrequests[block]);
