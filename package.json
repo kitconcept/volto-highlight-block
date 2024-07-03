@@ -1,58 +1,44 @@
 {
-  "name": "@kitconcept/volto-highlight-block",
-  "version": "3.0.1",
-  "description": "volto-highlight-block: Volto add-on",
-  "main": "src/index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/kitconcept/volto-highlight-block.git"
-  },
-  "bugs": {
-    "url": "https://github.com/kitconcept/volto-highlight-block/issues"
-  },
-  "homepage": "https://github.com/kitconcept/volto-highlight-block#readme",
+  "name": "@kitconcept/volto-highlight-block-dev",
+  "version": "1.0.0-alpha.0",
+  "description": "A new add-on for Volto",
   "author": "kitconcept, GmbH",
+  "homepage": "https://github.com/kitconcept/volto-highlight-block",
   "license": "MIT",
   "keywords": [
     "volto-addon",
     "volto",
     "plone",
-    "react",
-    "highlight",
-    "hero"
+    "react"
   ],
-  "publishConfig": {
-    "access": "public"
-  },
   "scripts": {
-    "i18n": "rm -rf build/messages && NODE_ENV=production i18n --addon",
-    "dry-release": "release-it --dry-run",
-    "release": "release-it",
-    "release-major-alpha": "release-it major --preRelease=alpha",
-    "release-alpha": "release-it --preRelease=alpha"
+    "preinstall": "npx only-allow pnpm",
+    "start": "VOLTOCONFIG=$(pwd)/volto.config.js pnpm --filter @plone/volto start",
+    "start:prod": "pnpm --filter @plone/volto start:prod",
+    "build": "VOLTOCONFIG=$(pwd)/volto.config.js pnpm --filter @plone/volto build",
+    "build:deps": "pnpm --filter @plone/registry --filter @plone/components build",
+    "i18n": "pnpm --filter @kitconcept/volto-highlight-block i18n && VOLTOCONFIG=$(pwd)/volto.config.js pnpm --filter @plone/volto i18n",
+    "test": "RAZZLE_JEST_CONFIG=$(pwd)/jest-addon.config.js pnpm --filter @plone/volto test -- --passWithNoTests",
+    "lint": "VOLTOCONFIG=$(pwd)/volto.config.js eslint --max-warnings=0 'packages/**/src/**/*.{js,jsx,ts,tsx}'",
+    "lint:fix": "VOLTOCONFIG=$(pwd)/volto.config.js eslint --fix 'packages/**/src/**/*.{js,jsx,ts,tsx}'",
+    "prettier": "prettier --check 'packages/**/src/**/*.{js,jsx,ts,tsx}'",
+    "prettier:fix": "prettier --write 'packages/**/src/**/*.{js,jsx,ts,tsx}' ",
+    "stylelint": "stylelint 'packages/**/src/**/*.{css,scss,less}' --allow-empty-input",
+    "stylelint:fix": "stylelint 'packages/**/src/**/*.{css,scss,less}' --fix --allow-empty-input",
+    "dry-release": "pnpm --filter @kitconcept/volto-highlight-block dry-release",
+    "release": "pnpm --filter @kitconcept/volto-highlight-block release",
+    "release-major-alpha": "pnpm --filter @kitconcept/volto-highlight-block release-major-alpha",
+    "release-alpha": "pnpm --filter @kitconcept/volto-highlight-block release-alpha",
+    "storybook": "VOLTOCONFIG=$(pwd)/volto.config.js pnpm --filter @plone/volto storybook dev -p 6006 -c $(pwd)/.storybook",
+    "storybook-build": "VOLTOCONFIG=$(pwd)/volto.config.js pnpm --filter @plone/volto build-storybook -c $(pwd)/.storybook"
+  },
+  "dependencies": {
+    "@plone/volto": "workspace:*",
+    "@plone/registry": "workspace:*",
+    "@kitconcept/volto-highlight-block": "workspace:*"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "7.22.15",
-    "@plone/scripts": "^3.6.1",
-    "eslint": "8.49.0",
-    "eslint-config-prettier": "8.10.0",
-    "eslint-config-react-app": "7.0.1",
-    "eslint-import-resolver-alias": "1.1.2",
-    "eslint-import-resolver-babel-plugin-root-import": "1.1.1",
-    "eslint-plugin-import": "2.28.1",
-    "eslint-plugin-jsx-a11y": "6.7.1",
-    "eslint-plugin-prettier": "3.4.1",
-    "eslint-plugin-react": "7.33.2",
-    "eslint-plugin-react-hooks": "4.6.0",
-    "postcss-scss": "4.0.8",
-    "prettier": "2.0.5",
-    "release-it": "^17.1.1",
-    "stylelint": "15.10.3",
-    "stylelint-config-idiomatic-order": "9.0.0",
-    "stylelint-config-sass-guidelines": "10.0.0",
-    "stylelint-prettier": "4.0.2"
+    "mrs-developer": "^2.2.0"
   },
-  "peerDependencies": {
-    "@plone/volto": "^17.0.0 || ^18.0.0-alpha.0"
-  }
+  "packageManager": "pnpm@9.4.0"
 }

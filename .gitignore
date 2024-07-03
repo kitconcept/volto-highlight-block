@@ -1,14 +1,13 @@
-node_modules
-project
-addon-testing-project
-.changelog.draft
+.*project
+.settings/
+.vscode
+*~
+acceptance/cypress/videos/
+acceptance/node_modules
+.storybook-build
 build
-
-# yarn 3
-.pnp.*
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/sdks
-!.yarn/versions
+core
+node_modules
+results
+yarn.lock
+public
