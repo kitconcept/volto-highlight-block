@@ -3,21 +3,35 @@ import cx from 'classnames';
 import { TextBlockView } from '@plone/volto-slate/blocks/Text';
 import { DetachedTextBlockEditor } from '@plone/volto-slate/blocks/Text/DetachedTextBlockEditor';
 import TextLineEdit from '@plone/volto/components/manage/TextLineEdit/TextLineEdit';
-import ImageWidget from '../../ImageWidget/ImageWidget';
 import { flattenToAppURL, isInternalURL } from '@plone/volto/helpers';
 import { Container as SemanticContainer, Button } from 'semantic-ui-react';
 import { useSelector } from 'react-redux';
 import config from '@plone/volto/registry';
+import { ImageInput } from '@plone/volto/components/manage/Widgets/ImageWidget';
 
 const HighlightView = (props) => {
   const { block, blocksConfig, className, data, isEditMode, onChangeBlock } =
     props;
 
   const dataAdapter = blocksConfig.highlight.dataAdapter;
+
   const request = useSelector((state) => state.content.subrequests[block]);
   const content = request?.data;
-
   const buttonLink = data?.buttonLink?.[0] ? data?.buttonLink[0]['@id'] : '';
+
+  const handleChange = React.useCallback(
+    async (id, value) => {
+      dataAdapter({
+        block,
+        data,
+        id: 'url',
+        onChangeBlock,
+        value,
+        content,
+      });
+    },
+    [data, block, content, dataAdapter, onChangeBlock],
+  );
 
   let renderedImage = null;
   if (data.url) {
@@ -106,24 +120,25 @@ const HighlightView = (props) => {
       ) : (
         <div>
           {props.isEditMode && (
-            <ImageWidget
-              {...props}
-              inline
-              // Since we are using a component that has a widget interface
-              // we need to adapt its props to it
-              id="url"
-              // This is called in case of the inline widget (eg. NOT the sidebar form)
-              onChange={(id, value) => {
-                dataAdapter({
-                  block,
-                  data,
-                  id,
-                  onChangeBlock,
-                  value,
-                  content,
-                });
-              }}
-            />
+            <>
+              <ImageInput
+                onChange={(id, value, item) => {
+                  dataAdapter({
+                    block,
+                    data,
+                    id: 'url',
+                    onChangeBlock,
+                    value,
+                    content,
+                    item,
+                  });
+                }}
+                placeholderLinkInput={data.placeholder}
+                block={props.block}
+                id={props.block}
+                objectBrowserPickerType={'image'}
+              />
+            </>
           )}
         </div>
       )}

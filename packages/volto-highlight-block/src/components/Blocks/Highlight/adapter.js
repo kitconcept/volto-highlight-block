@@ -7,12 +7,19 @@ export const HighlightBlockDataAdapter = ({
   onChangeBlock,
   value,
   content,
+  item,
 }) => {
   let dataSaved = {
     ...data,
     [id]: value,
   };
-  if (id === 'url' && typeof value === 'object') {
+  if (value === null) {
+    dataSaved = {
+      ...dataSaved,
+      image_field: undefined,
+      image_scales: undefined,
+    };
+  } else if (id === 'url' && typeof value === 'object') {
     dataSaved = {
       ...dataSaved,
       [id]: flattenToAppURL(value['@id']),
@@ -21,11 +28,17 @@ export const HighlightBlockDataAdapter = ({
     };
   }
   // I uploaded the image right now, no image info
-  if (id === 'url' && typeof value === 'string') {
+  else if (id === 'url' && typeof value === 'string' && content) {
     dataSaved = {
       ...dataSaved,
       image_field: 'image',
       image_scales: { image: [content?.image] },
+    };
+  } else if (id === 'url' && typeof value === 'string' && item) {
+    dataSaved = {
+      ...dataSaved,
+      image_field: item.image_field,
+      image_scales: item.image_scales,
     };
   }
   onChangeBlock(block, dataSaved);
