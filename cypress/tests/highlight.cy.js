@@ -43,9 +43,9 @@ context('Highlight Block Acceptance Tests', () => {
     cy.get('.blocks-chooser .mostUsed .button.highlight').click({
       force: true,
     });
-    cy.get('#sidebar').findByLabelText('Browse the site').click();
 
-    cy.findByLabelText('Browse Document').click();
+    cy.get('#sidebar').findByLabelText('Pick an existing image').click();
+
     cy.findByLabelText('Select My Image').dblclick();
 
     getSlateEditorAndType(

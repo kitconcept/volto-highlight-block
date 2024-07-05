@@ -2,8 +2,6 @@ import HighlightView from './components/Blocks/Highlight/View';
 import HighlightEdit from './components/Blocks/Highlight/Edit';
 import { HighlightBlockDataAdapter } from './components/Blocks/Highlight/adapter';
 import presentationSVG from '@plone/volto/icons/presentation.svg';
-import LocalImageWidget from './components/ImageWidget/ImageWidget';
-// import ImageWidget from '@plone/volto/components/manage/Widgets/ImageWidget';
 import './theme/highlight.scss';
 import './theme/image-widget.scss';
 
@@ -30,8 +28,6 @@ const applyConfig = (config) => {
     dataAdapter: HighlightBlockDataAdapter,
     descriptionColors: CONTENT_COLORS,
   };
-
-  // config.widgets.widget.image = LocalImageWidget;
 
   return config;
 };
