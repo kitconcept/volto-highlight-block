@@ -17,7 +17,7 @@ const HighlightData = (props) => {
     <BlockDataForm
       schema={schema}
       title={schema.title}
-      onChangeField={(id, value) => {
+      onChangeField={(id, value, item) => {
         dataAdapter({
           block,
           data,
@@ -25,6 +25,7 @@ const HighlightData = (props) => {
           onChangeBlock,
           value,
           content,
+          item,
         });
       }}
       formData={data}
