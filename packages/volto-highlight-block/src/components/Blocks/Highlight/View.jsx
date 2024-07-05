@@ -19,20 +19,6 @@ const HighlightView = (props) => {
   const content = request?.data;
   const buttonLink = data?.buttonLink?.[0] ? data?.buttonLink[0]['@id'] : '';
 
-  const handleChange = React.useCallback(
-    async (id, value) => {
-      dataAdapter({
-        block,
-        data,
-        id: 'url',
-        onChangeBlock,
-        value,
-        content,
-      });
-    },
-    [data, block, content, dataAdapter, onChangeBlock],
-  );
-
   let renderedImage = null;
   if (data.url) {
     let Image = config.getComponent('Image').component;
