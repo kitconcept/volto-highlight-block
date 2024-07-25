@@ -11,12 +11,11 @@ import { ImageInput } from '@plone/volto/components/manage/Widgets/ImageWidget';
 import { MaybeWrap } from '@plone/volto/components';
 
 const LegacyWrapper = (props) => (
-  <div className={cx('block highlight', className)}>{props.children}</div>
+  <div className={cx('block highlight', props.className)}>{props.children}</div>
 );
 
 const HighlightView = (props) => {
-  const { block, blocksConfig, className, data, isEditMode, onChangeBlock } =
-    props;
+  const { block, blocksConfig, data, isEditMode, onChangeBlock } = props;
 
   const dataAdapter = blocksConfig.highlight.dataAdapter;
 
