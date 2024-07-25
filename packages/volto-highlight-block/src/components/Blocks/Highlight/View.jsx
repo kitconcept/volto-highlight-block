@@ -8,6 +8,11 @@ import { Container as SemanticContainer, Button } from 'semantic-ui-react';
 import { useSelector } from 'react-redux';
 import config from '@plone/volto/registry';
 import { ImageInput } from '@plone/volto/components/manage/Widgets/ImageWidget';
+import { MaybeWrap } from '@plone/volto/components';
+
+const LegacyWrapper = (props) => (
+  <div className={cx('block highlight', className)}>{props.children}</div>
+);
 
 const HighlightView = (props) => {
   const { block, blocksConfig, className, data, isEditMode, onChangeBlock } =
@@ -62,8 +67,10 @@ const HighlightView = (props) => {
 
   const Container = customContainer || SemanticContainer;
 
+  const isBlockModelv3 = blocksConfig?.highlight.blockModel === 3;
+
   return (
-    <div className={cx('block highlight', className)}>
+    <MaybeWrap condition={!isBlockModelv3} as={LegacyWrapper}>
       {data.url ? (
         <div className="teaser-item top">
           <div className="highlight-image-wrapper">{renderedImage}</div>
@@ -128,7 +135,7 @@ const HighlightView = (props) => {
           )}
         </div>
       )}
-    </div>
+    </MaybeWrap>
   );
 };
 
