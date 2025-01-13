@@ -1,0 +1,67 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Plone\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-07-05T14:34:48.019Z\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
+"Language: \n"
+"Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8\n"
+"Domain: volto\n"
+
+#. Default: "Button"
+#: components/Blocks/Highlight/schema
+msgid "Button"
+msgstr "Schaltfläche"
+
+#. Default: "Description"
+#: components/Blocks/Highlight/schema
+msgid "Description"
+msgstr "Beschreibung"
+
+#. Default: "Height"
+#: components/Blocks/Highlight/schema
+msgid "Height"
+msgstr "Höhe"
+
+#. Default: "Image"
+#: components/Blocks/Highlight/schema
+msgid "Image"
+msgstr "Bild"
+
+#. Default: "Title"
+#: components/Blocks/Highlight/schema
+msgid "Title"
+msgstr "Titel"
+
+#. Default: "Width"
+#: components/Blocks/Highlight/schema
+msgid "Width"
+msgstr "Breite"
+
+#. Default: "Button Link"
+#: components/Blocks/Highlight/schema
+msgid "buttonLink"
+msgstr "Schaltflächen Link"
+
+#. Default: "Button Text"
+#: components/Blocks/Highlight/schema
+msgid "buttonText"
+msgstr "Schaltfläche Text"
+
+#. Default: "Description color"
+#: components/Blocks/Highlight/schema
+msgid "descriptionColor"
+msgstr "Beschreibungs Farbe"
+
+#. Default: "Highlight"
+#: components/Blocks/Highlight/schema
+msgid "highlightBlockTitle"
+msgstr ""
