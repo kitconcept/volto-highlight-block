@@ -18,7 +18,7 @@ $highlight-custom-color-3: $light-orange;
 $highlight-custom-color-4: $light-green;
 $highlight-custom-color-5: $dark-green;
 
-$highlight-images-aspect-ratio: 4/3;
+$highlight-images-aspect-ratio: 1.3333;
 $highlight-images-object-position: top left;
 
 :root {
@@ -28,7 +28,7 @@ $highlight-images-object-position: top left;
   --highlight-custom-color-4: #c9d465;
   --highlight-custom-color-5: #7da048;
 
-  --highlight-images-aspect-ratio: 4/3;
+  --highlight-images-aspect-ratio: 1.3333;
   --highlight-images-object-position: top left;
 }
 
@@ -260,26 +260,26 @@ $highlight-images-object-position: top left;
     &.active.highlight-custom-color-2:hover {
       background: var(--highlight-custom-color-2, $highlight-custom-color-2);
     }
-  }
 
-  &.highlight-custom-color-3,
-  &.highlight-custom-color-3.active,
-  &.highlight-custom-color-3:hover,
-  &.active.highlight-custom-color-3:hover {
-    background: var(--highlight-custom-color-3, $highlight-custom-color-3);
-  }
+    &.highlight-custom-color-3,
+    &.highlight-custom-color-3.active,
+    &.highlight-custom-color-3:hover,
+    &.active.highlight-custom-color-3:hover {
+      background: var(--highlight-custom-color-3, $highlight-custom-color-3);
+    }
 
-  &.highlight-custom-color-4,
-  &.highlight-custom-color-4.active,
-  &.highlight-custom-color-4:hover,
-  &.active.highlight-custom-color-4:hover {
-    background: var(--highlight-custom-color-4, $highlight-custom-color-4);
-  }
+    &.highlight-custom-color-4,
+    &.highlight-custom-color-4.active,
+    &.highlight-custom-color-4:hover,
+    &.active.highlight-custom-color-4:hover {
+      background: var(--highlight-custom-color-4, $highlight-custom-color-4);
+    }
 
-  &.highlight-custom-color-5,
-  &.highlight-custom-color-5.active,
-  &.highlight-custom-color-5:hover,
-  &.active.highlight-custom-color-5:hover {
-    background: var(--highlight-custom-color-5, $highlight-custom-color-5);
+    &.highlight-custom-color-5,
+    &.highlight-custom-color-5.active,
+    &.highlight-custom-color-5:hover,
+    &.active.highlight-custom-color-5:hover {
+      background: var(--highlight-custom-color-5, $highlight-custom-color-5);
+    }
   }
 }
