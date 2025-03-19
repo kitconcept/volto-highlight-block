@@ -12,17 +12,25 @@ $light-orange: #fddf63 !default;
 $light-green: #c9d465 !default;
 $dark-green: #7da048 !default;
 
-$highlight-custom-color-1: var(--highlight-custom-color-1, $medium-blue);
-$highlight-custom-color-2: var(--highlight-custom-color-2, $dark-blue);
-$highlight-custom-color-3: var(--highlight-custom-color-3, $light-orange);
-$highlight-custom-color-4: var(--highlight-custom-color-4, $light-green);
-$highlight-custom-color-5: var(--highlight-custom-color-5, $dark-green);
+$highlight-custom-color-1: $medium-blue;
+$highlight-custom-color-2: $dark-blue;
+$highlight-custom-color-3: $light-orange;
+$highlight-custom-color-4: $light-green;
+$highlight-custom-color-5: $dark-green;
 
-$highlight-images-aspect-ratio: var(--highlight-images-aspect-ratio, 4/3);
-$highlight-images-object-position: var(
-  --highlight-images-object-position,
-  top left
-);
+$highlight-images-aspect-ratio: 1.3333;
+$highlight-images-object-position: top left;
+
+:root {
+  --highlight-custom-color-1: #55b8da;
+  --highlight-custom-color-2: #006489;
+  --highlight-custom-color-3: #fddf63;
+  --highlight-custom-color-4: #c9d465;
+  --highlight-custom-color-5: #7da048;
+
+  --highlight-images-aspect-ratio: 1.3333;
+  --highlight-images-object-position: top left;
+}
 
 .block.highlight {
   .ui.container.padded {
@@ -45,9 +53,15 @@ $highlight-images-object-position: var(
       img {
         width: 100%;
         height: auto; // important with width+height img attributes
-        aspect-ratio: $highlight-images-aspect-ratio;
+        aspect-ratio: var(
+          --highlight-images-aspect-ratio,
+          $highlight-images-aspect-ratio
+        );
         object-fit: cover;
-        object-position: $highlight-images-object-position;
+        object-position: var(
+          --highlight-images-object-position,
+          $highlight-images-object-position
+        );
       }
     }
 
@@ -86,7 +100,6 @@ $highlight-images-object-position: var(
           border-radius: 0;
           color: inherit !important;
           font-size: 16px;
-
           font-weight: 700;
           line-height: 30px;
           text-align: center;
@@ -101,68 +114,55 @@ $highlight-images-object-position: var(
     }
   }
 
-  &.has--descriptionColor--highlight-custom-color-1 {
+  &.has--descriptionColor--highlight-custom-color-1,
+  &.has--descriptionColor--highlight-custom-color-3,
+  &.has--descriptionColor--highlight-custom-color-4,
+  &.has--descriptionColor--highlight-custom-color-5 {
     .highlight-description {
-      background: $highlight-custom-color-1;
-      color: $black;
+      color: var(--theme-foreground-color, $black);
 
       h2,
       a,
       p {
-        color: $black;
+        color: var(--theme-foreground-color, $black);
       }
+    }
+  }
+
+  &.has--descriptionColor--highlight-custom-color-1 {
+    .highlight-description {
+      background: var(--highlight-custom-color-1, $highlight-custom-color-1);
     }
   }
 
   &.has--descriptionColor--highlight-custom-color-2 {
     .highlight-description {
-      background: $highlight-custom-color-2;
-      color: $white;
+      background: var(--highlight-custom-color-2, $highlight-custom-color-2);
+      color: var(--theme-foreground-color, $white);
 
       h2,
       a,
       p {
-        color: $white;
+        color: var(--theme-foreground-color, $white);
       }
     }
   }
 
   &.has--descriptionColor--highlight-custom-color-3 {
     .highlight-description {
-      background: $highlight-custom-color-3;
-      color: $black;
-
-      h2,
-      a,
-      p {
-        color: $black;
-      }
+      background: var(--highlight-custom-color-3, $highlight-custom-color-3);
     }
   }
 
   &.has--descriptionColor--highlight-custom-color-4 {
     .highlight-description {
-      background: $highlight-custom-color-4;
-      color: $black;
-
-      h2,
-      a,
-      p {
-        color: $black;
-      }
+      background: var(--highlight-custom-color-4, $highlight-custom-color-4);
     }
   }
 
   &.has--descriptionColor--highlight-custom-color-5 {
     .highlight-description {
-      background: $highlight-custom-color-5;
-      color: $black;
-
-      h2,
-      a,
-      p {
-        color: $black;
-      }
+      background: var(--highlight-custom-color-5, $highlight-custom-color-5);
     }
   }
 }
@@ -178,68 +178,51 @@ $highlight-images-object-position: var(
       background-color: #ccc !important;
     }
 
+    .highlight-description {
+      color: var(--theme-foreground-color, $black);
+
+      h2,
+      a,
+      p {
+        color: var(--theme-foreground-color, $black);
+      }
+    }
+
     &.has--descriptionColor--highlight-custom-color-1 {
       .highlight-description {
-        background: $highlight-custom-color-1;
-        color: $black;
-
-        h2,
-        a,
-        p {
-          color: $black;
-        }
+        background: var(--highlight-custom-color-1, $highlight-custom-color-1);
       }
     }
 
     &.has--descriptionColor--highlight-custom-color-2 {
       .highlight-description {
-        background: $highlight-custom-color-2;
-        color: $white;
+        background: var(--highlight-custom-color-2, $highlight-custom-color-2);
+        color: var(--theme-foreground-color, $white);
 
         h2,
         a,
-        p {
-          color: $white;
+        p,
+        span {
+          color: var(--theme-foreground-color, $white);
         }
       }
     }
 
     &.has--descriptionColor--highlight-custom-color-3 {
       .highlight-description {
-        background: $highlight-custom-color-3;
-        color: $black;
-
-        h2,
-        a,
-        p {
-          color: $black;
-        }
+        background: var(--highlight-custom-color-3, $highlight-custom-color-3);
       }
     }
 
     &.has--descriptionColor--highlight-custom-color-4 {
       .highlight-description {
-        background: $highlight-custom-color-4;
-        color: $black;
-
-        h2,
-        a,
-        p {
-          color: $black;
-        }
+        background: var(--highlight-custom-color-4, $highlight-custom-color-4);
       }
     }
 
     &.has--descriptionColor--highlight-custom-color-5 {
       .highlight-description {
-        background: $highlight-custom-color-5;
-        color: $black;
-
-        h2,
-        a,
-        p {
-          color: $black;
-        }
+        background: var(--highlight-custom-color-5, $highlight-custom-color-5);
       }
     }
   }
@@ -254,41 +237,49 @@ $highlight-images-object-position: var(
   }
 }
 
-.color-picker-widget {
-  // Color widget Highlight-Block
+.color-picker-widget,
+.theme-picker-widget {
+  // Color widget &
+  // Theme color picker widget
 
-  .button.highlight-custom-color-1,
-  .button.highlight-custom-color-1.active,
-  .button.highlight-custom-color-1:hover,
-  .button.active.highlight-custom-color-1:hover {
-    background: $highlight-custom-color-1;
-  }
+  button,
+  .button {
+    &.highlight-custom-color-1,
+    &.highlight-custom-color-1.active,
+    &.highlight-custom-color-1:hover,
+    &.active.highlight-custom-color-1:hover {
+      background-color: var(
+        --highlight-custom-color-1,
+        $highlight-custom-color-1
+      );
+    }
 
-  .button.highlight-custom-color-2,
-  .button.highlight-custom-color-2.active,
-  .button.highlight-custom-color-2:hover,
-  .button.active.highlight-custom-color-2:hover {
-    background: $highlight-custom-color-2;
-  }
+    &.highlight-custom-color-2,
+    &.highlight-custom-color-2.active,
+    &.highlight-custom-color-2:hover,
+    &.active.highlight-custom-color-2:hover {
+      background: var(--highlight-custom-color-2, $highlight-custom-color-2);
+    }
 
-  .button.highlight-custom-color-3,
-  .button.highlight-custom-color-3.active,
-  .button.highlight-custom-color-3:hover,
-  .button.active.highlight-custom-color-3:hover {
-    background: $highlight-custom-color-3;
-  }
+    &.highlight-custom-color-3,
+    &.highlight-custom-color-3.active,
+    &.highlight-custom-color-3:hover,
+    &.active.highlight-custom-color-3:hover {
+      background: var(--highlight-custom-color-3, $highlight-custom-color-3);
+    }
 
-  .button.highlight-custom-color-4,
-  .button.highlight-custom-color-4.active,
-  .button.highlight-custom-color-4:hover,
-  .button.active.highlight-custom-color-4:hover {
-    background: $highlight-custom-color-4;
-  }
+    &.highlight-custom-color-4,
+    &.highlight-custom-color-4.active,
+    &.highlight-custom-color-4:hover,
+    &.active.highlight-custom-color-4:hover {
+      background: var(--highlight-custom-color-4, $highlight-custom-color-4);
+    }
 
-  .button.highlight-custom-color-5,
-  .button.highlight-custom-color-5.active,
-  .button.highlight-custom-color-5:hover,
-  .button.active.highlight-custom-color-5:hover {
-    background: $highlight-custom-color-5;
+    &.highlight-custom-color-5,
+    &.highlight-custom-color-5.active,
+    &.highlight-custom-color-5:hover,
+    &.active.highlight-custom-color-5:hover {
+      background: var(--highlight-custom-color-5, $highlight-custom-color-5);
+    }
   }
 }
