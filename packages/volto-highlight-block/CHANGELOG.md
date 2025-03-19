@@ -8,6 +8,12 @@
 
 <!-- towncrier release notes start -->
 
+## 4.1.0 (2025-03-19)
+
+### Feature
+
+- Improve support for VLT6 color system. @danalvrz [#11](https://github.com/kitconcept/volto-highlight-block/issue/11)
+
 ## 4.0.0 (2024-07-08)
 
 ### Breaking

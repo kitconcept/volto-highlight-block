@@ -1,1 +1,0 @@
-Improve support for VLT6 color system. @danalvrz
