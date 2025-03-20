@@ -1,4 +1,4 @@
-import { flattenToAppURL } from '@plone/volto/helpers';
+import { flattenToAppURL } from '@plone/volto/helpers/Url/Url';
 
 export const HighlightBlockDataAdapter = ({
   block,

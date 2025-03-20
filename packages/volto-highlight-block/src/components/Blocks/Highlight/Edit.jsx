@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SidebarPortal } from '@plone/volto/components';
+import SidebarPortal from '@plone/volto/components/manage/Sidebar/SidebarPortal';
 import HighlightData from './Data';
 import HighlightView from './View';
 
