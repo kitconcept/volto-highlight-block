@@ -1,11 +1,14 @@
-# Highlight block by kitconcept
+<picture>
+  <source align="right" media="(prefers-color-scheme: dark)" srcset="https://kitconcept.com/kitconcept-white.svg">
+  <img align="right" width="300" alt="kitconcept, GmbH" src="https://kitconcept.com/kitconcept-black.svg">
+</picture>
+
+# Highlight block
 
 [![npm](https://img.shields.io/npm/v/@kitconcept/volto-highlight-block)](https://www.npmjs.com/package/@kitconcept/volto-highlight-block)
 [![](https://img.shields.io/badge/-Storybook-ff4785?logo=Storybook&logoColor=white&style=flat-square)](https://kitconcept.github.io/volto-highlight-block/)
 [![Code analysis checks](https://github.com/kitconcept/volto-highlight-block/actions/workflows/code.yml/badge.svg)](https://github.com/kitconcept/volto-highlight-block/actions/workflows/code.yml)
 [![Unit tests](https://github.com/kitconcept/volto-highlight-block/actions/workflows/unit.yml/badge.svg)](https://github.com/kitconcept/volto-highlight-block/actions/workflows/unit.yml)
-
-![kitconcept GmbH](https://github.com/kitconcept/volto-blocks/raw/master/kitconcept.png)
 
 This add-on provides a block that features a big image picked from the images on the site on top and a title and description editable inline.
 It allows also to set colors on the background of the text area. It features five customizable colors by default. See the block in action: [www.dlr.de](https://www.dlr.de/de/das-dlr).
@@ -242,4 +245,4 @@ The project is licensed under the MIT license.
 
 ## Credits and Acknowledgements 🙏
 
-Crafted with care by **Generated using [Cookieplone (0.7.1)](https://github.com/plone/cookieplone) and [cookiecutter-plone (5979a0b)](https://github.com/plone/cookiecutter-plone/commit/5979a0be9457d6a7b542a8b1e5890a0ec58cb7c1) on 2024-07-03 12:26:33.002571**. A special thanks to all contributors and supporters!
+This package is developed and maintained by [kitconcept GmbH](https://kitconcept.com) ❤️.
