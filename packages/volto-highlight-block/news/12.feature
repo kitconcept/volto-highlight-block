@@ -1,1 +1,0 @@
-Add style for color-swatch-widget. @danalvrz

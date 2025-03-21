@@ -8,6 +8,12 @@
 
 <!-- towncrier release notes start -->
 
+## 4.2.0 (2025-03-21)
+
+### Feature
+
+- Add style for color-swatch-widget. @danalvrz [#12](https://github.com/kitconcept/volto-highlight-block/issue/12)
+
 ## 4.1.0 (2025-03-19)
 
 ### Feature
