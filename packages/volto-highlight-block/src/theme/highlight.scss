@@ -18,6 +18,12 @@ $highlight-custom-color-3: $light-orange;
 $highlight-custom-color-4: $light-green;
 $highlight-custom-color-5: $dark-green;
 
+$highlight-custom-text-color-1: $black;
+$highlight-custom-text-color-2: $white;
+$highlight-custom-text-color-3: $black;
+$highlight-custom-text-color-4: $black;
+$highlight-custom-text-color-5: $black;
+
 $highlight-images-aspect-ratio: 1.3333;
 $highlight-images-object-position: top left;
 
@@ -32,7 +38,8 @@ $highlight-images-object-position: top left;
   --highlight-images-object-position: top left;
 }
 
-.block.highlight {
+.block.highlight,
+.block-editor-highlight {
   .ui.container.padded {
     padding: 0 40px;
   }
@@ -114,60 +121,72 @@ $highlight-images-object-position: top left;
     }
   }
 
-  &.has--descriptionColor--highlight-custom-color-1,
-  &.has--descriptionColor--highlight-custom-color-3,
-  &.has--descriptionColor--highlight-custom-color-4,
-  &.has--descriptionColor--highlight-custom-color-5 {
-    .highlight-description {
-      color: var(--theme-foreground-color, $black);
-
-      h2,
-      a,
-      p {
-        color: var(--theme-foreground-color, $black);
-      }
-    }
-  }
-
   &.has--descriptionColor--highlight-custom-color-1 {
-    .highlight-description {
-      background: var(--highlight-custom-color-1, $highlight-custom-color-1);
+    .teaser-item .highlight-description {
+      background: var(
+        --highlight-custom-color-1,
+        var(--theme-color, $highlight-custom-color-1)
+      );
+      color: var(
+        --highlight-custom-text-color-1,
+        var(--theme-foreground-color, $highlight-custom-text-color-1)
+      );
     }
   }
 
   &.has--descriptionColor--highlight-custom-color-2 {
-    .highlight-description {
-      background: var(--highlight-custom-color-2, $highlight-custom-color-2);
-      color: var(--theme-foreground-color, $white);
-
-      h2,
-      a,
-      p {
-        color: var(--theme-foreground-color, $white);
-      }
+    .teaser-item .highlight-description {
+      background: var(
+        --highlight-custom-color-2,
+        var(--theme-color, $highlight-custom-color-2)
+      );
+      color: var(
+        --highlight-custom-text-color-2,
+        var(--theme-foreground-color, $highlight-custom-text-color-2)
+      );
     }
   }
 
   &.has--descriptionColor--highlight-custom-color-3 {
-    .highlight-description {
-      background: var(--highlight-custom-color-3, $highlight-custom-color-3);
+    .teaser-item .highlight-description {
+      background: var(
+        --highlight-custom-color-3,
+        var(--theme-color, $highlight-custom-color-3)
+      );
+      color: var(
+        --highlight-custom-text-color-3,
+        var(--theme-foreground-color, $highlight-custom-text-color-3)
+      );
     }
   }
 
   &.has--descriptionColor--highlight-custom-color-4 {
-    .highlight-description {
-      background: var(--highlight-custom-color-4, $highlight-custom-color-4);
+    .teaser-item .highlight-description {
+      background: var(
+        --highlight-custom-color-4,
+        var(--theme-color, $highlight-custom-color-4)
+      );
+      color: var(
+        --highlight-custom-text-color-4,
+        var(--theme-foreground-color, $highlight-custom-text-color-4)
+      );
     }
   }
 
   &.has--descriptionColor--highlight-custom-color-5 {
-    .highlight-description {
-      background: var(--highlight-custom-color-5, $highlight-custom-color-5);
+    .teaser-item .highlight-description {
+      background: var(
+        --highlight-custom-color-5,
+        var(--theme-color, $highlight-custom-color-5)
+      );
+      color: var(
+        --highlight-custom-text-color-5,
+        var(--theme-foreground-color, $highlight-custom-text-color-5)
+      );
     }
   }
 }
 
-// TODO: merge with above?
 // Block Highlight Edit
 #page-edit,
 #page-add {
@@ -177,58 +196,10 @@ $highlight-images-object-position: top left;
     ::selection {
       background-color: #ccc !important;
     }
-
-    .highlight-description {
-      color: var(--theme-foreground-color, $black);
-
-      h2,
-      a,
-      p {
-        color: var(--theme-foreground-color, $black);
-      }
-    }
-
-    &.has--descriptionColor--highlight-custom-color-1 {
-      .highlight-description {
-        background: var(--highlight-custom-color-1, $highlight-custom-color-1);
-      }
-    }
-
-    &.has--descriptionColor--highlight-custom-color-2 {
-      .highlight-description {
-        background: var(--highlight-custom-color-2, $highlight-custom-color-2);
-        color: var(--theme-foreground-color, $white);
-
-        h2,
-        a,
-        p,
-        span {
-          color: var(--theme-foreground-color, $white);
-        }
-      }
-    }
-
-    &.has--descriptionColor--highlight-custom-color-3 {
-      .highlight-description {
-        background: var(--highlight-custom-color-3, $highlight-custom-color-3);
-      }
-    }
-
-    &.has--descriptionColor--highlight-custom-color-4 {
-      .highlight-description {
-        background: var(--highlight-custom-color-4, $highlight-custom-color-4);
-      }
-    }
-
-    &.has--descriptionColor--highlight-custom-color-5 {
-      .highlight-description {
-        background: var(--highlight-custom-color-5, $highlight-custom-color-5);
-      }
-    }
   }
 
   .block.highlight {
-    max-width: 1440px;
+    max-width: var(--layout-container-width, 1440px);
 
     .no-image-wrapper {
       display: inline-block;
