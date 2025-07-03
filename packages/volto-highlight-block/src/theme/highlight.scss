@@ -81,6 +81,8 @@ $highlight-images-object-position: top left;
     .highlight-description {
       padding-bottom: 100px;
       margin-top: -7px;
+      background: var(--theme-color);
+      color: var(--theme-foreground-color);
 
       .title {
         margin-top: 75px;
@@ -132,66 +134,66 @@ $highlight-images-object-position: top left;
   }
 
   &.has--descriptionColor--highlight-custom-color-1 {
-    .teaser-item .highlight-description {
-      background: var(
+    .highlight-description {
+      --theme-color: var(
         --highlight-custom-color-1,
-        var(--theme-color, $highlight-custom-color-1)
+        $highlight-custom-color-1
       );
-      color: var(
+      --theme-foreground-color: var(
         --highlight-custom-text-color-1,
-        var(--theme-foreground-color, $highlight-custom-text-color-1)
+        $highlight-custom-text-color-1
       );
     }
   }
 
   &.has--descriptionColor--highlight-custom-color-2 {
-    .teaser-item .highlight-description {
-      background: var(
+    .highlight-description {
+      --theme-color: var(
         --highlight-custom-color-2,
-        var(--theme-color, $highlight-custom-color-2)
+        $highlight-custom-color-2
       );
-      color: var(
+      --theme-foreground-color: var(
         --highlight-custom-text-color-2,
-        var(--theme-foreground-color, $highlight-custom-text-color-2)
+        $highlight-custom-text-color-2
       );
     }
   }
 
   &.has--descriptionColor--highlight-custom-color-3 {
-    .teaser-item .highlight-description {
-      background: var(
+    .highlight-description {
+      --theme-color: var(
         --highlight-custom-color-3,
-        var(--theme-color, $highlight-custom-color-3)
+        $highlight-custom-color-3
       );
-      color: var(
+      --theme-foreground-color: var(
         --highlight-custom-text-color-3,
-        var(--theme-foreground-color, $highlight-custom-text-color-3)
+        $highlight-custom-text-color-3
       );
     }
   }
 
   &.has--descriptionColor--highlight-custom-color-4 {
-    .teaser-item .highlight-description {
-      background: var(
+    .highlight-description {
+      --theme-color: var(
         --highlight-custom-color-4,
-        var(--theme-color, $highlight-custom-color-4)
+        $highlight-custom-color-4
       );
-      color: var(
+      --theme-foreground-color: var(
         --highlight-custom-text-color-4,
-        var(--theme-foreground-color, $highlight-custom-text-color-4)
+        $highlight-custom-text-color-4
       );
     }
   }
 
   &.has--descriptionColor--highlight-custom-color-5 {
-    .teaser-item .highlight-description {
-      background: var(
+    .highlight-description {
+      --theme-color: var(
         --highlight-custom-color-5,
-        var(--theme-color, $highlight-custom-color-5)
+        $highlight-custom-color-5
       );
-      color: var(
+      --theme-foreground-color: var(
         --highlight-custom-text-color-5,
-        var(--theme-foreground-color, $highlight-custom-text-color-5)
+        $highlight-custom-text-color-5
       );
     }
   }
