@@ -135,10 +135,7 @@ $highlight-images-object-position: top left;
 
   &.has--descriptionColor--highlight-custom-color-1 {
     .highlight-description {
-      --theme-color: var(
-        --highlight-custom-color-1,
-        $highlight-custom-color-1
-      );
+      --theme-color: var(--highlight-custom-color-1, $highlight-custom-color-1);
       --theme-foreground-color: var(
         --highlight-custom-text-color-1,
         $highlight-custom-text-color-1
@@ -148,10 +145,7 @@ $highlight-images-object-position: top left;
 
   &.has--descriptionColor--highlight-custom-color-2 {
     .highlight-description {
-      --theme-color: var(
-        --highlight-custom-color-2,
-        $highlight-custom-color-2
-      );
+      --theme-color: var(--highlight-custom-color-2, $highlight-custom-color-2);
       --theme-foreground-color: var(
         --highlight-custom-text-color-2,
         $highlight-custom-text-color-2
@@ -161,10 +155,7 @@ $highlight-images-object-position: top left;
 
   &.has--descriptionColor--highlight-custom-color-3 {
     .highlight-description {
-      --theme-color: var(
-        --highlight-custom-color-3,
-        $highlight-custom-color-3
-      );
+      --theme-color: var(--highlight-custom-color-3, $highlight-custom-color-3);
       --theme-foreground-color: var(
         --highlight-custom-text-color-3,
         $highlight-custom-text-color-3
@@ -174,10 +165,7 @@ $highlight-images-object-position: top left;
 
   &.has--descriptionColor--highlight-custom-color-4 {
     .highlight-description {
-      --theme-color: var(
-        --highlight-custom-color-4,
-        $highlight-custom-color-4
-      );
+      --theme-color: var(--highlight-custom-color-4, $highlight-custom-color-4);
       --theme-foreground-color: var(
         --highlight-custom-text-color-4,
         $highlight-custom-text-color-4
@@ -187,10 +175,7 @@ $highlight-images-object-position: top left;
 
   &.has--descriptionColor--highlight-custom-color-5 {
     .highlight-description {
-      --theme-color: var(
-        --highlight-custom-color-5,
-        $highlight-custom-color-5
-      );
+      --theme-color: var(--highlight-custom-color-5, $highlight-custom-color-5);
       --theme-foreground-color: var(
         --highlight-custom-text-color-5,
         $highlight-custom-text-color-5
