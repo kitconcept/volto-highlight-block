@@ -19,7 +19,7 @@ msgstr ""
 #. Default: "Button"
 #: components/Blocks/Highlight/schema
 msgid "Button"
-msgstr "Schaltfläche"
+msgstr ""
 
 #. Default: "Description"
 #: components/Blocks/Highlight/schema
