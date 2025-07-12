@@ -22,7 +22,9 @@ It allows also to set colors on the background of the text area. It features fiv
 
 ## Customizable colors
 
-You can use CSS custom properties from your theme or add-ons:
+From version 4.1, the [volto-light-theme](https://github.com/kitconcept/volto-light-theme) color properties are supported as fallbacks. If the addon's custom properties are unset, the Highlight block will automatically use the theme's properties instead.
+
+The following CSS custom properties are exposed for customization via theme or add-ons:
 
 ```
 .root {
@@ -31,6 +33,12 @@ You can use CSS custom properties from your theme or add-ons:
 --highlight-custom-color-3: yellow;
 --highlight-custom-color-4: brown;
 --highlight-custom-color-5: white;
+
+--highlight-custom-text-color-1: #000;
+--highlight-custom-text-color-2: black;
+--highlight-custom--textcolor-3: navy;
+--highlight-custom--textcolor-4: white;
+--highlight-custom--textcolor-5: midnightblue;
 }
 ```
 
