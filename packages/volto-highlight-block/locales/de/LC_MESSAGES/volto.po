@@ -49,12 +49,12 @@ msgstr "Breite"
 #. Default: "Button Link"
 #: components/Blocks/Highlight/schema
 msgid "buttonLink"
-msgstr "Schaltflächen Link"
+msgstr ""
 
 #. Default: "Button Text"
 #: components/Blocks/Highlight/schema
 msgid "buttonText"
-msgstr "Schaltfläche Text"
+msgstr ""
 
 #. Default: "Description color"
 #: components/Blocks/Highlight/schema
