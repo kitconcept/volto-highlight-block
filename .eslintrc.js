@@ -51,7 +51,7 @@ module.exports = {
           ['@plone/registry', `${coreLocation}/packages/registry/src`],
           [
             '@kitconcept/volto-highlight-block',
-            './packages/volto-highlight-block/src',
+            `${projectRootPath}/packages/volto-highlight-block/src`,
           ],
           ...addonAliases,
         ],
