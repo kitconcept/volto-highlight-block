@@ -8,6 +8,12 @@
 
 <!-- towncrier release notes start -->
 
+## 4.4.0 (2025-07-23)
+
+### Feature
+
+- Improve text color handling. @danalvrz [#14](https://github.com/kitconcept/volto-highlight-block/issue/14)
+
 ## 4.2.0 (2025-03-21)
 
 ### Feature

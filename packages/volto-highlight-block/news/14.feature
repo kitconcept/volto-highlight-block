@@ -1,1 +1,0 @@
-Improve text color handling. @danalvrz
