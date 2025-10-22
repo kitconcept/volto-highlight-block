@@ -8,6 +8,16 @@
 
 <!-- towncrier release notes start -->
 
+## 4.5.0 (2025-10-22)
+
+### Feature
+
+- Add Spanish translation #15 @macagua [#15](https://github.com/kitconcept/volto-highlight-block/issue/15)
+
+### Internal
+
+- Fixed image tag. @sneridagh 
+
 ## 4.4.0 (2025-07-23)
 
 ### Feature
