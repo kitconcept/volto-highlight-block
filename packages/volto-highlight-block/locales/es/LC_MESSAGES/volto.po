@@ -1,0 +1,71 @@
+#. Translation of volto.pot to Spanish
+#. Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2025.
+msgid ""
+msgstr ""
+"Project-Id-Version: Plone\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-07-05T14:34:48.019Z\n"
+"PO-Revision-Date: 2025-07-17 14:57+0200\n"
+"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
+"Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: es\n"
+"Language-Name: Español\n"
+"Preferred-Encodings: utf-8\n"
+"Domain: volto\n"
+"X-Is-Fallback-For: es-ar es-bo es-cl es-co es-cr es-do es-ec es-es es-sv es-gt es-hn es-mx es-ni es-pa es-py es-pe es-pr es-us es-uy es-ve\n"
+"X-Generator: Poedit 3.6\n"
+
+#. Default: "Button"
+#: components/Blocks/Highlight/schema
+msgid "Button"
+msgstr "Botón"
+
+#. Default: "Description"
+#: components/Blocks/Highlight/schema
+msgid "Description"
+msgstr "Descripción"
+
+#. Default: "Height"
+#: components/Blocks/Highlight/schema
+msgid "Height"
+msgstr "Altura"
+
+#. Default: "Image"
+#: components/Blocks/Highlight/schema
+msgid "Image"
+msgstr "Imagen"
+
+#. Default: "Title"
+#: components/Blocks/Highlight/schema
+msgid "Title"
+msgstr "Título"
+
+#. Default: "Width"
+#: components/Blocks/Highlight/schema
+msgid "Width"
+msgstr "Anchura"
+
+#. Default: "Button Link"
+#: components/Blocks/Highlight/schema
+msgid "buttonLink"
+msgstr "Enlace de botón"
+
+#. Default: "Button Text"
+#: components/Blocks/Highlight/schema
+msgid "buttonText"
+msgstr "Texto de botón"
+
+#. Default: "Description color"
+#: components/Blocks/Highlight/schema
+msgid "descriptionColor"
+msgstr "Color de la descripción"
+
+#. Default: "Highlight"
+#: components/Blocks/Highlight/schema
+msgid "highlightBlockTitle"
+msgstr "Destacado"
