@@ -44,7 +44,7 @@ const HighlightView = (props) => {
     } else {
       // default img expects string src
       renderedImage = (
-        <img
+        <Image
           src={
             isInternalURL(data.url['@id'])
               ? // Backwards compat in the case that the block is storing the full server URL
