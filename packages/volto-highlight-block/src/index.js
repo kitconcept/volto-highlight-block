@@ -21,7 +21,6 @@ const applyConfig = (config) => {
     group: 'teasers',
     view: HighlightView,
     edit: HighlightEdit,
-    blockHasOwnFocusManagement: true,
     restricted: false,
     mostUsed: true,
     sidebarTab: 1,
