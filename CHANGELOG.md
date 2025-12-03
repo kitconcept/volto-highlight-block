@@ -8,6 +8,12 @@
 
 <!-- towncrier release notes start -->
 
+## 4.5.1 (2025-12-03)
+
+### Internal
+
+- Fix the enter button feature in the highlight block @iRohitSingh 
+
 ## 4.5.0 (2025-10-22)
 
 ### Feature
