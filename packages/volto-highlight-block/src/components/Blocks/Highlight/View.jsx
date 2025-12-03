@@ -1,7 +1,5 @@
 import React from 'react';
 import cx from 'classnames';
-import { connect } from 'react-redux';
-import saveSlateBlockSelection from '@plone/volto-slate/actions/selection';
 import { TextBlockView } from '@plone/volto-slate/blocks/Text';
 import { DetachedTextBlockEditor } from '@plone/volto-slate/blocks/Text/DetachedTextBlockEditor';
 import TextLineEdit from '@plone/volto/components/manage/TextLineEdit/TextLineEdit';
@@ -134,6 +132,4 @@ const HighlightView = (props) => {
   );
 };
 
-export default connect(null, {
-  saveSlateBlockSelection,
-})(HighlightView);
+export default HighlightView;
