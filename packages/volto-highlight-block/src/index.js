@@ -20,7 +20,7 @@ const CONTENT_COLORS = [
     label: 'Blue',
     style: {
       '--theme-color': '#006489',
-      '--theme-foreground-color': '#f00',
+      '--theme-foreground-color': '#fff',
     },
   },
   {
