@@ -1,1 +1,1 @@
-Add color styles object in block colors settings. @danalvrz
+Use only css props for styling. @danalvrz
