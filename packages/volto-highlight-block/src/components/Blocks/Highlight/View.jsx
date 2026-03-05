@@ -10,8 +10,15 @@ import config from '@plone/volto/registry';
 import { ImageInput } from '@plone/volto/components/manage/Widgets/ImageWidget';
 
 const HighlightView = (props) => {
-  const { block, blocksConfig, className, data, isEditMode, onChangeBlock } =
-    props;
+  const {
+    block,
+    blocksConfig,
+    className,
+    data,
+    isEditMode,
+    onChangeBlock,
+    style,
+  } = props;
 
   const dataAdapter = blocksConfig.highlight.dataAdapter;
 
@@ -63,7 +70,7 @@ const HighlightView = (props) => {
   const Container = customContainer || SemanticContainer;
 
   return (
-    <div className={cx('block highlight', className)}>
+    <div className={cx('block highlight', className)} style={style}>
       {data.url ? (
         <div className="teaser-item top">
           <div className="highlight-image-wrapper">{renderedImage}</div>

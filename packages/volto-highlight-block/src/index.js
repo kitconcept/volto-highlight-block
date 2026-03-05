@@ -1,6 +1,7 @@
 import HighlightView from './components/Blocks/Highlight/View';
 import HighlightEdit from './components/Blocks/Highlight/Edit';
 import { HighlightBlockDataAdapter } from './components/Blocks/Highlight/adapter';
+import { HighlightSchema } from './components/Blocks/Highlight/schema';
 import presentationSVG from '@plone/volto/icons/presentation.svg';
 import './theme/highlight.scss';
 import './theme/image-widget.scss';
@@ -60,6 +61,7 @@ const applyConfig = (config) => {
     mostUsed: true,
     sidebarTab: 1,
     dataAdapter: HighlightBlockDataAdapter,
+    blockSchema: HighlightSchema,
     descriptionColors: CONTENT_COLORS,
   };
 

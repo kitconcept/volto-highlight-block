@@ -90,7 +90,10 @@ export function HighlightSchema(props) {
     title: intl.formatMessage(messages.descriptionColor),
     widget: 'color_picker',
     colors: descriptionColors,
-    default: 'highlight-custom-color-1',
+    default: {
+      '--theme-color': '#55b8da',
+      '--theme-foreground-color': '#000',
+    },
   };
 
   return schema;
