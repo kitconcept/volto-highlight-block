@@ -1,0 +1,1 @@
+Add color styles object in block colors settings. @danalvrz

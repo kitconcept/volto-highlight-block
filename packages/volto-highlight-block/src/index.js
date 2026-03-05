@@ -6,11 +6,46 @@ import './theme/highlight.scss';
 import './theme/image-widget.scss';
 
 const CONTENT_COLORS = [
-  { name: 'highlight-custom-color-1', label: 'Medium Blue' },
-  { name: 'highlight-custom-color-2', label: 'Light Orange' },
-  { name: 'highlight-custom-color-3', label: 'Light Green' },
-  { name: 'highlight-custom-color-4', label: 'Blue' },
-  { name: 'highlight-custom-color-5', label: 'Green' },
+  {
+    name: 'highlight-custom-color-1',
+    label: 'Medium Blue',
+    style: {
+      '--theme-color': '#55b8da',
+      '--theme-foreground-color': '#000',
+    },
+  },
+  {
+    name: 'highlight-custom-color-2',
+    label: 'Blue',
+    style: {
+      '--theme-color': '#006489',
+      '--theme-foreground-color': '#f00',
+    },
+  },
+  {
+    name: 'highlight-custom-color-3',
+    label: 'Light Orange',
+    style: {
+      '--theme-color': '#fddf63',
+      '--theme-foreground-color': '#000',
+    },
+  },
+  {
+    name: 'highlight-custom-color-4',
+    label: 'Light Green',
+    style: {
+      '--theme-color': '#c9d465',
+      '--theme-foreground-color': '#000',
+    },
+  },
+  {
+    name: 'highlight-custom-color-5',
+    label: 'Green',
+    style: {
+      '--theme-color': '#7da048',
+      '--theme-foreground-color': '#000',
+    },
+  },
 ];
 
 const applyConfig = (config) => {
