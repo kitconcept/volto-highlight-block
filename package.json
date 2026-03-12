@@ -34,6 +34,7 @@
   },
   "dependencies": {
     "@kitconcept/volto-highlight-block": "workspace:*",
+    "@kitconcept/volto-light-theme": "8.0.0-alpha.17",
     "@plone/registry": "workspace:*",
     "@plone/volto": "workspace:*"
   },
@@ -45,6 +46,9 @@
       "@pmmmwh/react-refresh-webpack-plugin": "^0.5.15",
       "react-refresh": "^0.14.2"
     },
+    "ignoredBuiltDependencies": [
+      "@parcel/watcher"
+    ],
     "onlyBuiltDependencies": [
       "core-js",
       "core-js-pure",
