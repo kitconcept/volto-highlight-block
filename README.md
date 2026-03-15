@@ -251,6 +251,9 @@ make acceptance-test
 
 The project is licensed under the MIT license.
 
-## Credits and Acknowledgements 🙏
+## Credits
 
-This package is developed and maintained by [kitconcept GmbH](https://kitconcept.com) ❤️.
+<img alt="Deutsches Zentrum für Luft- und Raumfahrt" src="https://github.com/kitconcept/volto-slider-block/raw/main/dlr.svg" width="230px" />
+
+The development of this plugin has been kindly sponsored by the [German Aerospace Center (DLR)](https://dlr.de).
+
