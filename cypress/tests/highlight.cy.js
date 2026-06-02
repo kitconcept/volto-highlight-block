@@ -61,15 +61,13 @@ context('Highlight Block Acceptance Tests', () => {
     cy.get('.ui.checkbox:last').click({ force: true });
     cy.get('#field-buttonText').type('read more');
 
-    cy.get('.block-editor-highlight').should(
-      'have.attr',
-      'style',
-    ).and('include', '--descriptionColor--theme-color: #55b8da');
+    cy.get('.block-editor-highlight')
+      .should('have.attr', 'style')
+      .and('include', '--descriptionColor: #000');
     cy.get('.ui.circular.button.highlight-custom-color-3').click();
-    cy.get('.block-editor-highlight').should(
-      'have.attr',
-      'style',
-    ).and('include', '--descriptionColor--theme-color: #fddf63');
+    cy.get('.block-editor-highlight')
+      .should('have.attr', 'style')
+      .and('include', '--descriptionColor: #91C9FA');
 
     cy.get('.highlight-image-wrapper > img').should('be.visible');
 
@@ -83,9 +81,8 @@ context('Highlight Block Acceptance Tests', () => {
 
     cy.get('#toolbar-save').click();
 
-    cy.get('.block.highlight').should(
-      'have.attr',
-      'style',
-    ).and('include', '--descriptionColor--theme-color: #fddf63');
+    cy.get('.block.highlight')
+      .should('have.attr', 'style')
+      .and('include', '--descriptionColor: #91C9FA');
   });
 });

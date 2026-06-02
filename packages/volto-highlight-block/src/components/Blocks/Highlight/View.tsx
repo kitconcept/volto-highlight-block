@@ -1,15 +1,27 @@
 import React from 'react';
 import cx from 'classnames';
+import { defineMessages, useIntl } from 'react-intl';
 import { TextBlockView } from '@plone/volto-slate/blocks/Text';
 import { DetachedTextBlockEditor } from '@plone/volto-slate/blocks/Text/DetachedTextBlockEditor';
 import TextLineEdit from '@plone/volto/components/manage/TextLineEdit/TextLineEdit';
 import { flattenToAppURL, isInternalURL } from '@plone/volto/helpers/Url/Url';
-import { Container as SemanticContainer, Button } from 'semantic-ui-react';
+import ConditionalLink from '@plone/volto/components/manage/ConditionalLink/ConditionalLink';
 import { useSelector } from 'react-redux';
 import config from '@plone/volto/registry';
 import { ImageInput } from '@plone/volto/components/manage/Widgets/ImageWidget';
+import type { BlockEditProps } from '@plone/types';
+import type { HighlightBlockDataAdapterArgs } from './adapter';
 
-const HighlightView = (props) => {
+const messages = defineMessages({
+  buttonTextPlaceholder: {
+    id: 'Button Text',
+    defaultMessage: 'Button Text',
+  },
+});
+
+type HighlightViewProps = BlockEditProps & { isEditMode?: boolean };
+
+const HighlightView = (props: HighlightViewProps) => {
   const {
     block,
     blocksConfig,
@@ -20,9 +32,13 @@ const HighlightView = (props) => {
     style,
   } = props;
 
-  const dataAdapter = blocksConfig.highlight.dataAdapter;
+  const intl = useIntl();
 
-  const request = useSelector((state) => state.content.subrequests[block]);
+  const dataAdapter = blocksConfig.highlight.dataAdapter as (
+    args: HighlightBlockDataAdapterArgs,
+  ) => void;
+
+  const request = useSelector((state: any) => state.content.subrequests[block]);
   const content = request?.data;
   const buttonLink = data?.buttonLink?.[0] ? data?.buttonLink[0]['@id'] : '';
 
@@ -53,10 +69,10 @@ const HighlightView = (props) => {
       renderedImage = (
         <Image
           src={
-            isInternalURL(data.url['@id'])
+            isInternalURL((data.url as any)['@id'])
               ? // Backwards compat in the case that the block is storing the full server URL
-                `${flattenToAppURL(data.url['@id'])}/@@images/image`
-              : data.url['@id']
+                `${flattenToAppURL((data.url as any)['@id'])}/@@images/image`
+              : (data.url as any)['@id']
           }
           alt=""
           loading="lazy"
@@ -65,21 +81,26 @@ const HighlightView = (props) => {
     }
   }
 
-  const customContainer = config.getComponent({ name: 'Container' }).component;
-
-  const Container = customContainer || SemanticContainer;
-
   return (
     <div className={cx('block highlight', className)} style={style}>
       {data.url ? (
-        <div className="teaser-item top">
+        <div className="teaser-item top block-inner-container">
           <div className="highlight-image-wrapper">{renderedImage}</div>
-          <div className={cx('highlight-description')}>
-            <Container
-              className={cx('teaser-description-title', {
-                padded: !customContainer,
-              })}
-            >
+          <div className="highlight-description">
+            <div className="teaser-description-title">
+              <div className="headtitle">
+                {isEditMode ? (
+                  <TextLineEdit
+                    {...props}
+                    renderTag="div"
+                    renderClassName=""
+                    fieldDataName="headtitle"
+                    properties={{ headtitle: data.headtitle }}
+                  />
+                ) : (
+                  <>{data?.headtitle && <div>{data?.headtitle}</div>}</>
+                )}
+              </div>
               <div className="title">
                 {isEditMode ? (
                   <TextLineEdit
@@ -100,14 +121,20 @@ const HighlightView = (props) => {
                   <TextBlockView {...props} />
                 )}
               </div>
-              <div className="button">
-                {data?.button && (
-                  <Button inverted basic as="a" href={buttonLink}>
-                    {data?.buttonText}
-                  </Button>
-                )}
-              </div>
-            </Container>
+              {data?.button && (data?.buttonText || isEditMode) && (
+                <ConditionalLink
+                  to={buttonLink}
+                  condition={!isEditMode}
+                  item={data?.buttonLink?.[0]}
+                  className="button-link-wrapper"
+                >
+                  <div className="button">
+                    {data?.buttonText ||
+                      intl.formatMessage(messages.buttonTextPlaceholder)}
+                  </div>
+                </ConditionalLink>
+              )}
+            </div>
           </div>
         </div>
       ) : (
@@ -115,7 +142,7 @@ const HighlightView = (props) => {
           {props.isEditMode && (
             <>
               <ImageInput
-                onChange={(id, value, item) => {
+                onChange={(id: string, value: any, item: any) => {
                   dataAdapter({
                     block,
                     data,
@@ -127,8 +154,8 @@ const HighlightView = (props) => {
                   });
                 }}
                 placeholderLinkInput={data.placeholder}
-                block={props.block}
-                id={props.block}
+                block={block}
+                id={block}
                 objectBrowserPickerType={'image'}
               />
             </>

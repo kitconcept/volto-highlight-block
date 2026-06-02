@@ -1,5 +1,3 @@
-#. Translation of volto.pot to Spanish
-#. Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Plone\n"
@@ -7,12 +5,12 @@ msgstr ""
 "POT-Creation-Date: 2024-07-05T14:34:48.019Z\n"
 "PO-Revision-Date: 2025-07-17 14:57+0200\n"
 "Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
-"Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "Language: es\n"
-"MIME-Version: 1.0\n"
+"Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
 "Language-Code: es\n"
 "Language-Name: Español\n"
 "Preferred-Encodings: utf-8\n"
@@ -24,6 +22,11 @@ msgstr ""
 #: components/Blocks/Highlight/schema
 msgid "Button"
 msgstr "Botón"
+
+#. Default: "Button Text"
+#: components/Blocks/Highlight/View
+msgid "Button Text"
+msgstr ""
 
 #. Default: "Description"
 #: components/Blocks/Highlight/schema
@@ -64,6 +67,11 @@ msgstr "Texto de botón"
 #: components/Blocks/Highlight/schema
 msgid "descriptionColor"
 msgstr "Color de la descripción"
+
+#. Default: "Kicker"
+#: components/Blocks/Highlight/schema
+msgid "head_title"
+msgstr ""
 
 #. Default: "Highlight"
 #: components/Blocks/Highlight/schema

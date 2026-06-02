@@ -19,6 +19,11 @@ msgstr ""
 #. Default: "Button"
 #: components/Blocks/Highlight/schema
 msgid "Button"
+msgstr "Knopf"
+
+#. Default: "Button Text"
+#: components/Blocks/Highlight/View
+msgid "Button Text"
 msgstr ""
 
 #. Default: "Description"
@@ -49,7 +54,7 @@ msgstr "Breite"
 #. Default: "Button Link"
 #: components/Blocks/Highlight/schema
 msgid "buttonLink"
-msgstr ""
+msgstr "Verlinkung"
 
 #. Default: "Button Text"
 #: components/Blocks/Highlight/schema
@@ -60,6 +65,11 @@ msgstr ""
 #: components/Blocks/Highlight/schema
 msgid "descriptionColor"
 msgstr "Beschreibungs Farbe"
+
+#. Default: "Kicker"
+#: components/Blocks/Highlight/schema
+msgid "head_title"
+msgstr ""
 
 #. Default: "Highlight"
 #: components/Blocks/Highlight/schema

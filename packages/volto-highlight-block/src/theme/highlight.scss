@@ -7,18 +7,14 @@
 
 .block.highlight,
 .block-editor-highlight {
-  --theme-color: var(--descriptionColor--theme-color);
-  --theme-foreground-color: var(--descriptionColor--theme-foreground-color);
-  .ui.container.padded {
-    padding: 0 40px;
+  .block-inner-container {
+    max-width: var(--layout-container-width, 1440px);
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  .teaser-item,
-  .grid-teaser-item {
+  .teaser-item {
     flex-direction: column;
-  }
-
-  .teaser-item.top {
     a {
       display: inline;
     }
@@ -36,25 +32,48 @@
     }
 
     .highlight-description {
-      padding-bottom: 100px;
-      margin-top: -7px;
-      background: var(--theme-color);
-      color: var(--theme-foreground-color);
+      padding-bottom: 80px;
+      padding-top: 80px;
+      background: var(--descriptionColor);
+      color: var(--descriptionColor-foreground);
+
+      @container (max-width: 768px) {
+        padding-bottom: 60px;
+        padding-top: 60px;
+      }
+
+      .headtitle {
+        div {
+          font-weight: 700;
+          font-size: 18px;
+          line-height: 24px;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+          margin-bottom: 40px;
+
+          @container (max-width: 768px) {
+            margin-bottom: 20px;
+          }
+        }
+      }
 
       .title {
-        margin-top: 75px;
-
         h2 {
+          margin-top: 0;
           font-size: 48px;
           font-weight: 700;
           line-height: 56px;
+          margin-bottom: 60px;
           @include word-break();
+
+          @container (max-width: 768px) {
+            margin-bottom: 40px;
+          }
         }
       }
 
       .description {
-        margin-top: 50px;
-        margin-bottom: 50px;
+        margin-bottom: 80px;
 
         p {
           font-size: 24px;
@@ -62,23 +81,34 @@
           line-height: 34px;
 
           a {
-            color: var(--link-foreground-color, inherit);
+            color: inherit;
           }
+        }
+
+        @container (max-width: 768px) {
+          margin-bottom: 60px;
         }
       }
 
+      a.button-link-wrapper {
+        text-decoration: none;
+      }
       .button {
-        a {
-          display: initial;
-          padding: 10px 30px 15px;
-          border: solid;
-          border-width: 1px;
-          border-radius: 0;
-          color: inherit !important;
-          font-size: 16px;
-          font-weight: 700;
-          line-height: 30px;
-          text-align: center;
+        display: initial;
+        padding: 8px 20px;
+        border: solid;
+        border-width: 1px;
+        border-radius: 0;
+        color: var(--descriptionColor-foreground);
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 30px;
+        text-align: center;
+        text-decoration: none;
+
+        &:hover {
+          background: var(--descriptionColor-foreground);
+          color: var(--descriptionColor) !important;
         }
       }
 
@@ -96,14 +126,16 @@
 #page-add {
   .block-editor-highlight {
     // The selection of text clashes with the default ::selection,
-    // replacing it with a color more neutral on top of solid color
+    // replacing it with a color mix between background and foreground colors.
     ::selection {
-      background-color: #ccc !important;
+      background-color: color-mix(
+        in srgb,
+        var(--descriptionColor) 60%,
+        var(--descriptionColor-foreground)
+      ) !important;
     }
 
     .block.highlight {
-      max-width: var(--layout-container-width, 1440px);
-
       .text-slate-editor-inner {
         [data-slate-node='element'] > span {
           color: inherit;
@@ -115,6 +147,10 @@
         text-align: center;
       }
     }
+
+    [data-slate-placeholder='true'] {
+      --theme-low-contrast-foreground-color: var(--descriptionColor-foreground);
+    }
   }
 }
 
@@ -125,7 +161,17 @@
     &[class*='highlight-custom-color']:hover,
     &[class*='highlight-custom-color'].active,
     &[class*='highlight-custom-color'].active:hover {
-      background-color: var(--theme-color);
+      background-color: var(--descriptionColor);
     }
+  }
+}
+
+.color-swatch-widget[class*='field-wrapper-descriptionColor'] {
+  div[aria-label='Description color'] {
+    flex-wrap: wrap;
+  }
+  .color-swatch-option-handler {
+    background-color: var(--descriptionColor);
+    color: var(--descriptionColor-foreground);
   }
 }
