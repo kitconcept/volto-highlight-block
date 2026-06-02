@@ -44,7 +44,9 @@ context('Highlight Block Acceptance Tests', () => {
       force: true,
     });
 
-    cy.get('#sidebar').findByLabelText('Pick an existing image').click();
+    cy.get('.block.highlight')
+      .findByLabelText('Pick an existing image')
+      .click();
 
     cy.findByLabelText('Select My Image').dblclick();
 
@@ -64,7 +66,7 @@ context('Highlight Block Acceptance Tests', () => {
     cy.get('.block-editor-highlight')
       .should('have.attr', 'style')
       .and('include', '--descriptionColor: #000');
-    cy.get('.ui.circular.button.highlight-custom-color-3').click();
+    cy.get('.color-swatch-option-wrapper .highlight-custom-color-3').click();
     cy.get('.block-editor-highlight')
       .should('have.attr', 'style')
       .and('include', '--descriptionColor: #91C9FA');
