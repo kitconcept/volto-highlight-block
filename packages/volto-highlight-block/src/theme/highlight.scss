@@ -9,8 +9,8 @@
 .block-editor-highlight {
   .block-inner-container {
     max-width: var(--layout-container-width, 1440px);
-    margin-left: auto;
     margin-right: auto;
+    margin-left: auto;
   }
 
   .teaser-item {
@@ -32,24 +32,24 @@
     }
 
     .highlight-description {
-      padding-bottom: 80px;
       padding-top: 80px;
+      padding-bottom: 80px;
       background: var(--descriptionColor);
       color: var(--descriptionColor-foreground);
 
       @container (max-width: 768px) {
-        padding-bottom: 60px;
         padding-top: 60px;
+        padding-bottom: 60px;
       }
 
       .headtitle {
         div {
-          font-weight: 700;
-          font-size: 18px;
-          line-height: 24px;
-          letter-spacing: 1px;
-          text-transform: uppercase;
           margin-bottom: 40px;
+          font-size: 18px;
+          font-weight: 700;
+          letter-spacing: 1px;
+          line-height: 24px;
+          text-transform: uppercase;
 
           @container (max-width: 768px) {
             margin-bottom: 20px;
@@ -60,10 +60,10 @@
       .title {
         h2 {
           margin-top: 0;
+          margin-bottom: 60px;
           font-size: 48px;
           font-weight: 700;
           line-height: 56px;
-          margin-bottom: 60px;
           @include word-break();
 
           @container (max-width: 768px) {
