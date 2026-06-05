@@ -65,7 +65,7 @@ context('Highlight Block Acceptance Tests', () => {
 
     cy.get('.block-editor-highlight')
       .should('have.attr', 'style')
-      .and('include', '--descriptionColor: #000');
+      .and('include', '--descriptionColor: #ECEBEB');
     cy.get('.color-swatch-option-wrapper .highlight-custom-color-3').click();
     cy.get('.block-editor-highlight')
       .should('have.attr', 'style')
