@@ -8,6 +8,12 @@
 
 <!-- towncrier release notes start -->
 
+## 5.0.0-alpha.0 (2026-06-05)
+
+### Breaking
+
+- Use css props for styling, add kicker field, migrate to TS, and set new description color palettes. @danalvrz 
+
 ## 4.5.1 (2025-12-03)
 
 ### Internal
