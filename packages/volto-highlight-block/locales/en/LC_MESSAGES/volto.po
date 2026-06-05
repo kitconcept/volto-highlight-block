@@ -21,6 +21,11 @@ msgstr ""
 msgid "Button"
 msgstr ""
 
+#. Default: "Button Text"
+#: components/Blocks/Highlight/View
+msgid "Button Text"
+msgstr ""
+
 #. Default: "Description"
 #: components/Blocks/Highlight/schema
 msgid "Description"
@@ -59,6 +64,11 @@ msgstr ""
 #. Default: "Description color"
 #: components/Blocks/Highlight/schema
 msgid "descriptionColor"
+msgstr ""
+
+#. Default: "Kicker"
+#: components/Blocks/Highlight/schema
+msgid "head_title"
 msgstr ""
 
 #. Default: "Highlight"

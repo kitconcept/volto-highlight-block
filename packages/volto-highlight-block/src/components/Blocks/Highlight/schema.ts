@@ -1,5 +1,6 @@
 import { defineMessages } from 'react-intl';
 import { addStyling } from '@plone/volto/helpers/Extensions/withBlockSchemaEnhancer';
+import type { IntlShape } from '@plone/types';
 
 import config from '@plone/volto/registry';
 
@@ -7,6 +8,10 @@ const messages = defineMessages({
   highlightBlockTitle: {
     id: 'highlightBlockTitle',
     defaultMessage: 'Highlight',
+  },
+  headtitle: {
+    id: 'head_title',
+    defaultMessage: 'Kicker',
   },
   title: {
     id: 'Title',
@@ -46,10 +51,14 @@ const messages = defineMessages({
   },
 });
 
-export function HighlightSchema(props) {
-  const { intl } = props;
-  let schema = {
-    title: props.intl.formatMessage(messages.highlightBlockTitle),
+export function HighlightSchema({
+  intl,
+}: {
+  props?: unknown;
+  intl: IntlShape;
+}) {
+  const schema: any = {
+    title: intl.formatMessage(messages.highlightBlockTitle),
     fieldsets: [
       {
         id: 'default',
@@ -80,8 +89,8 @@ export function HighlightSchema(props) {
     required: [],
   };
 
-  const descriptionColors =
-    config.blocks?.blocksConfig.highlight.descriptionColors;
+  const descriptionColors = (config.blocks.blocksConfig.highlight as any)
+    .descriptionColors;
 
   addStyling({ schema, intl });
 
@@ -90,8 +99,7 @@ export function HighlightSchema(props) {
     title: intl.formatMessage(messages.descriptionColor),
     widget: 'color_picker',
     colors: descriptionColors,
-    default: 'highlight-custom-color-1',
+    default: descriptionColors[0].name,
   };
-
   return schema;
 }

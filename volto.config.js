@@ -1,5 +1,8 @@
-const addons = ['@kitconcept/volto-highlight-block'];
-const theme = '';
+const addons = [
+  '@kitconcept/volto-highlight-block',
+  '@kitconcept/volto-light-theme',
+];
+const theme = '@kitconcept/volto-light-theme';
 
 module.exports = {
   addons,

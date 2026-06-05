@@ -1,5 +1,15 @@
 import { flattenToAppURL } from '@plone/volto/helpers/Url/Url';
 
+export type HighlightBlockDataAdapterArgs = {
+  block: string;
+  data: Record<string, any>;
+  id: string;
+  onChangeBlock: (block: string, data: Record<string, any>) => void;
+  value: any;
+  content?: any;
+  item?: any;
+};
+
 export const HighlightBlockDataAdapter = ({
   block,
   data,
@@ -8,7 +18,7 @@ export const HighlightBlockDataAdapter = ({
   value,
   content,
   item,
-}) => {
+}: HighlightBlockDataAdapterArgs) => {
   let dataSaved = {
     ...data,
     [id]: value,
