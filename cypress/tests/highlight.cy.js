@@ -44,7 +44,9 @@ context('Highlight Block Acceptance Tests', () => {
       force: true,
     });
 
-    cy.get('#sidebar').findByLabelText('Pick an existing image').click();
+    cy.get('.block.highlight')
+      .findByLabelText('Pick an existing image')
+      .click();
 
     cy.findByLabelText('Select My Image').dblclick();
 
@@ -61,13 +63,13 @@ context('Highlight Block Acceptance Tests', () => {
     cy.get('.ui.checkbox:last').click({ force: true });
     cy.get('#field-buttonText').type('read more');
 
-    cy.get(
-      '.block-editor-highlight.has--descriptionColor--highlight-custom-color-1',
-    ).should('be.visible');
-    cy.get('.ui.circular.button.highlight-custom-color-3').click();
-    cy.get(
-      '.block-editor-highlight.has--descriptionColor--highlight-custom-color-3',
-    ).should('be.visible');
+    cy.get('.block-editor-highlight')
+      .should('have.attr', 'style')
+      .and('include', '--descriptionColor: #ECEBEB');
+    cy.get('.color-swatch-option-wrapper .highlight-custom-color-3').click();
+    cy.get('.block-editor-highlight')
+      .should('have.attr', 'style')
+      .and('include', '--descriptionColor: #91C9FA');
 
     cy.get('.highlight-image-wrapper > img').should('be.visible');
 
@@ -81,8 +83,8 @@ context('Highlight Block Acceptance Tests', () => {
 
     cy.get('#toolbar-save').click();
 
-    cy.get(
-      '.block.highlight.has--descriptionColor--highlight-custom-color-3',
-    ).should('be.visible');
+    cy.get('.block.highlight')
+      .should('have.attr', 'style')
+      .and('include', '--descriptionColor: #91C9FA');
   });
 });

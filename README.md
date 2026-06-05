@@ -10,53 +10,61 @@
 [![Code analysis checks](https://github.com/kitconcept/volto-highlight-block/actions/workflows/code.yml/badge.svg)](https://github.com/kitconcept/volto-highlight-block/actions/workflows/code.yml)
 [![Unit tests](https://github.com/kitconcept/volto-highlight-block/actions/workflows/unit.yml/badge.svg)](https://github.com/kitconcept/volto-highlight-block/actions/workflows/unit.yml)
 
-This add-on provides a block that features a big image picked from the images on the site on top and a title and description editable inline.
-It allows also to set colors on the background of the text area. It features five customizable colors by default. See the block in action: [www.dlr.de](https://www.dlr.de/de/das-dlr).
+This add-on provides a block that features a big image picked from the images on the site on top and a kicker, title, and description editable inline.
+It allows also to set colors on the background of the text area. It features seven customizable colors by default. See the block in action: [www.dlr.de](https://www.dlr.de/de/das-dlr).
 
 ## Compatibility
 
-| volto-highlight-block version | Volto version |
+| volto-highlight-block version | Volto version | VLT version
 |-------------|---------------|
 |   3.x.x  |   >= Volto 17.0.0 |
 |   4.x.x  |   >= Volto 17.18.0 or >=Volto 18.0.0-alpha.36  |
+|   5.x.x  |   >= Volto 18.0.0  | >= VLT 8.x
 
 ## Customizable colors
 
-From version 4.1, the [volto-light-theme](https://github.com/kitconcept/volto-light-theme) color properties are supported as fallbacks. If the addon's custom properties are unset, the Highlight block will automatically use the theme's properties instead.
+The Highlight block lets you set a background color on the description (text) area, and ships with seven color palettes by default.
 
-The following CSS custom properties are exposed for customization via theme or add-ons:
+Each palette is an object with an internal `name`, a `label`, and a `style` object that sets two CSS custom properties: `--descriptionColor` (the background) and `--descriptionColor-foreground` (the text/foreground color). These are applied to the description area when the palette is selected.
 
+```js
+const HIGHLIGHT_COLORS = [
+  {
+    name: 'highlight-custom-color-1',
+    label: 'Grey',
+    style: {
+      '--descriptionColor': '#ECEBEB',
+      '--descriptionColor-foreground': '#000',
+    },
+  },
+  {
+    name: 'highlight-custom-color-2',
+    label: 'Teal',
+    style: {
+      '--descriptionColor': '#306F7E',
+      '--descriptionColor-foreground': '#fff',
+    },
+  },
+  // ...
+];
 ```
-.root {
---highlight-custom-color-1: #eee;
---highlight-custom-color-2: red;
---highlight-custom-color-3: yellow;
---highlight-custom-color-4: brown;
---highlight-custom-color-5: white;
 
---highlight-custom-text-color-1: #000;
---highlight-custom-text-color-2: black;
---highlight-custom--textcolor-3: navy;
---highlight-custom--textcolor-4: white;
---highlight-custom--textcolor-5: midnightblue;
-}
+Override or add your own palettes via the block's config:
+
+```js
+config.blocks.blocksConfig.highlight.descriptionColors = HIGHLIGHT_COLORS;
 ```
 
-or even add more via the block's config:
+## Upgrading from 4.x to 5.x
 
-```
-  const CONTENT_COLORS = [
-    { name: 'highlight-custom-color-1', label: 'Medium Blue' },
-    { name: 'highlight-custom-color-2', label: 'Light Orange' },
-    { name: 'highlight-custom-color-3', label: 'Light Green' },
-    { name: 'highlight-custom-color-4', label: 'Blue' },
-    { name: 'highlight-custom-color-5', label: 'Green' },
-  ];
+Version 5 changes how the description colors are defined and rendered. The selected color is still stored as the palette `name` (e.g. `highlight-custom-color-1`), so **existing content keeps its selection**, but if you customized the colors or the styling, note the following:
 
-  config.blocks.blocksConfig.highlight = {
-    descriptionColors: CONTENT_COLORS,
-  };
-```
+- **Palettes now carry their own `style`.** Each entry in `descriptionColors` must include a `style` object setting `--descriptionColor` (background) and `--descriptionColor-foreground` (text). The previous `{ name, label }` shape is no longer enough.
+- **The `--highlight-custom-color-N` / `--highlight-custom-text-color-N` CSS custom properties are gone.** They are no longer read; remove any CSS that set them and move those values into each palette's `style` instead.
+- **The volto-light-theme color fallback was removed.** Colors now come solely from the palette `style`.
+- **The default palette changed** (e.g. the first color is now `Grey` instead of `Medium Blue`), so default content will render with different colors.
+
+Version 5 also requires Volto 19 or later and adds an inline-editable **kicker** field above the title.
 
 ## Screenshots
 
@@ -133,7 +141,7 @@ Visit http://localhost:3000/ in a browser, login, and check the awesome new feat
 ## Development
 
 The development of this add-on is done in isolation using a new approach using pnpm workspaces and latest `mrs-developer` and other Volto core improvements.
-For this reason, it only works with pnpm and Volto 18 (currently in alpha).
+For this reason, it only works with pnpm and Volto 18 or later.
 
 
 ### Pre-requisites
@@ -251,6 +259,9 @@ make acceptance-test
 
 The project is licensed under the MIT license.
 
-## Credits and Acknowledgements 🙏
+## Credits
 
-This package is developed and maintained by [kitconcept GmbH](https://kitconcept.com) ❤️.
+<img alt="Deutsches Zentrum für Luft- und Raumfahrt" src="https://github.com/kitconcept/volto-slider-block/raw/main/dlr.svg" width="230px" />
+
+The development of this plugin has been kindly sponsored by the [German Aerospace Center (DLR)](https://dlr.de).
+

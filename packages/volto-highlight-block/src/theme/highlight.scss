@@ -1,61 +1,20 @@
 @import 'utils';
 
-$white: #fff;
-$black: #000;
-$darkgrey: #666;
-$grey: #ececec;
-$grey3: #b2b2b2;
-$grey4: #878786;
-$medium-blue: #55b8da !default;
-$dark-blue: #006489 !default;
-$light-orange: #fddf63 !default;
-$light-green: #c9d465 !default;
-$dark-green: #7da048 !default;
-
-$highlight-custom-color-1: $medium-blue;
-$highlight-custom-color-2: $dark-blue;
-$highlight-custom-color-3: $light-orange;
-$highlight-custom-color-4: $light-green;
-$highlight-custom-color-5: $dark-green;
-
-$highlight-custom-text-color-1: $black;
-$highlight-custom-text-color-2: $white;
-$highlight-custom-text-color-3: $black;
-$highlight-custom-text-color-4: $black;
-$highlight-custom-text-color-5: $black;
-
-$highlight-images-aspect-ratio: 1.3333;
-$highlight-images-object-position: top left;
-
 :root {
-  --highlight-custom-color-1: #55b8da;
-  --highlight-custom-color-2: #006489;
-  --highlight-custom-color-3: #fddf63;
-  --highlight-custom-color-4: #c9d465;
-  --highlight-custom-color-5: #7da048;
-
-  --highlight-custom-text-color-1: #000;
-  --highlight-custom-text-color-2: #fff;
-  --highlight-custom-text-color-3: #000;
-  --highlight-custom-text-color-4: #000;
-  --highlight-custom-text-color-5: #000;
-
   --highlight-images-aspect-ratio: 1.3333;
   --highlight-images-object-position: top left;
 }
 
 .block.highlight,
 .block-editor-highlight {
-  .ui.container.padded {
-    padding: 0 40px;
+  .block-inner-container {
+    max-width: var(--layout-container-width, 1440px);
+    margin-right: auto;
+    margin-left: auto;
   }
 
-  .teaser-item,
-  .grid-teaser-item {
+  .teaser-item {
     flex-direction: column;
-  }
-
-  .teaser-item.top {
     a {
       display: inline;
     }
@@ -66,38 +25,55 @@ $highlight-images-object-position: top left;
       img {
         width: 100%;
         height: auto; // important with width+height img attributes
-        aspect-ratio: var(
-          --highlight-images-aspect-ratio,
-          $highlight-images-aspect-ratio
-        );
+        aspect-ratio: var(--highlight-images-aspect-ratio);
         object-fit: cover;
-        object-position: var(
-          --highlight-images-object-position,
-          $highlight-images-object-position
-        );
+        object-position: var(--highlight-images-object-position);
       }
     }
 
     .highlight-description {
-      padding-bottom: 100px;
-      margin-top: -7px;
-      background: var(--theme-color);
-      color: var(--theme-foreground-color);
+      padding-top: 80px;
+      padding-bottom: 80px;
+      background: var(--descriptionColor);
+      color: var(--descriptionColor-foreground);
+
+      @container (max-width: 768px) {
+        padding-top: 60px;
+        padding-bottom: 60px;
+      }
+
+      .headtitle {
+        div {
+          margin-bottom: 40px;
+          font-size: 18px;
+          font-weight: 700;
+          letter-spacing: 1px;
+          line-height: 24px;
+          text-transform: uppercase;
+
+          @container (max-width: 768px) {
+            margin-bottom: 20px;
+          }
+        }
+      }
 
       .title {
-        margin-top: 75px;
-
         h2 {
+          margin-top: 0;
+          margin-bottom: 60px;
           font-size: 48px;
           font-weight: 700;
           line-height: 56px;
           @include word-break();
+
+          @container (max-width: 768px) {
+            margin-bottom: 40px;
+          }
         }
       }
 
       .description {
-        margin-top: 50px;
-        margin-bottom: 50px;
+        margin-bottom: 80px;
 
         p {
           font-size: 24px;
@@ -105,23 +81,34 @@ $highlight-images-object-position: top left;
           line-height: 34px;
 
           a {
-            color: var(--link-foreground-color, inherit);
+            color: inherit;
           }
+        }
+
+        @container (max-width: 768px) {
+          margin-bottom: 60px;
         }
       }
 
+      a.button-link-wrapper {
+        text-decoration: none;
+      }
       .button {
-        a {
-          display: initial;
-          padding: 10px 30px 15px;
-          border: solid;
-          border-width: 1px;
-          border-radius: 0;
-          color: inherit !important;
-          font-size: 16px;
-          font-weight: 700;
-          line-height: 30px;
-          text-align: center;
+        display: initial;
+        padding: 8px 20px;
+        border: solid;
+        border-width: 1px;
+        border-radius: 0;
+        color: var(--descriptionColor-foreground);
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 30px;
+        text-align: center;
+        text-decoration: none;
+
+        &:hover {
+          background: var(--descriptionColor-foreground);
+          color: var(--descriptionColor) !important;
         }
       }
 
@@ -132,56 +119,6 @@ $highlight-images-object-position: top left;
       }
     }
   }
-
-  &.has--descriptionColor--highlight-custom-color-1 {
-    .highlight-description {
-      --theme-color: var(--highlight-custom-color-1, $highlight-custom-color-1);
-      --theme-foreground-color: var(
-        --highlight-custom-text-color-1,
-        $highlight-custom-text-color-1
-      );
-    }
-  }
-
-  &.has--descriptionColor--highlight-custom-color-2 {
-    .highlight-description {
-      --theme-color: var(--highlight-custom-color-2, $highlight-custom-color-2);
-      --theme-foreground-color: var(
-        --highlight-custom-text-color-2,
-        $highlight-custom-text-color-2
-      );
-    }
-  }
-
-  &.has--descriptionColor--highlight-custom-color-3 {
-    .highlight-description {
-      --theme-color: var(--highlight-custom-color-3, $highlight-custom-color-3);
-      --theme-foreground-color: var(
-        --highlight-custom-text-color-3,
-        $highlight-custom-text-color-3
-      );
-    }
-  }
-
-  &.has--descriptionColor--highlight-custom-color-4 {
-    .highlight-description {
-      --theme-color: var(--highlight-custom-color-4, $highlight-custom-color-4);
-      --theme-foreground-color: var(
-        --highlight-custom-text-color-4,
-        $highlight-custom-text-color-4
-      );
-    }
-  }
-
-  &.has--descriptionColor--highlight-custom-color-5 {
-    .highlight-description {
-      --theme-color: var(--highlight-custom-color-5, $highlight-custom-color-5);
-      --theme-foreground-color: var(
-        --highlight-custom-text-color-5,
-        $highlight-custom-text-color-5
-      );
-    }
-  }
 }
 
 // Block Highlight Edit
@@ -189,14 +126,16 @@ $highlight-images-object-position: top left;
 #page-add {
   .block-editor-highlight {
     // The selection of text clashes with the default ::selection,
-    // replacing it with a color more neutral on top of solid color
+    // replacing it with a color mix between background and foreground colors.
     ::selection {
-      background-color: #ccc !important;
+      background-color: color-mix(
+        in srgb,
+        var(--descriptionColor) 60%,
+        var(--descriptionColor-foreground)
+      ) !important;
     }
 
     .block.highlight {
-      max-width: var(--layout-container-width, 1440px);
-
       .text-slate-editor-inner {
         [data-slate-node='element'] > span {
           color: inherit;
@@ -208,53 +147,41 @@ $highlight-images-object-position: top left;
         text-align: center;
       }
     }
+
+    [data-slate-placeholder='true'] {
+      --theme-low-contrast-foreground-color: var(--descriptionColor-foreground);
+    }
   }
 }
 
-.color-picker-widget,
-.color-swatch-widget,
-.theme-picker-widget {
-  // Color widget &
-  // Theme color picker widget
+.section-edit,
+.section-add {
+  .slate-toolbar {
+    min-width: unset;
+    .button-wrapper:last-child {
+      margin-right: 3px;
+    }
+  }
+}
 
+.color-picker-widget {
   button,
   .button {
-    &.highlight-custom-color-1,
-    &.highlight-custom-color-1.active,
-    &.highlight-custom-color-1:hover,
-    &.active.highlight-custom-color-1:hover {
-      background-color: var(
-        --highlight-custom-color-1,
-        $highlight-custom-color-1
-      );
+    &[class*='highlight-custom-color'],
+    &[class*='highlight-custom-color']:hover,
+    &[class*='highlight-custom-color'].active,
+    &[class*='highlight-custom-color'].active:hover {
+      background-color: var(--descriptionColor);
     }
+  }
+}
 
-    &.highlight-custom-color-2,
-    &.highlight-custom-color-2.active,
-    &.highlight-custom-color-2:hover,
-    &.active.highlight-custom-color-2:hover {
-      background: var(--highlight-custom-color-2, $highlight-custom-color-2);
-    }
-
-    &.highlight-custom-color-3,
-    &.highlight-custom-color-3.active,
-    &.highlight-custom-color-3:hover,
-    &.active.highlight-custom-color-3:hover {
-      background: var(--highlight-custom-color-3, $highlight-custom-color-3);
-    }
-
-    &.highlight-custom-color-4,
-    &.highlight-custom-color-4.active,
-    &.highlight-custom-color-4:hover,
-    &.active.highlight-custom-color-4:hover {
-      background: var(--highlight-custom-color-4, $highlight-custom-color-4);
-    }
-
-    &.highlight-custom-color-5,
-    &.highlight-custom-color-5.active,
-    &.highlight-custom-color-5:hover,
-    &.active.highlight-custom-color-5:hover {
-      background: var(--highlight-custom-color-5, $highlight-custom-color-5);
-    }
+.color-swatch-widget[class*='field-wrapper-descriptionColor'] {
+  div[aria-label='Description color'] {
+    flex-wrap: wrap;
+  }
+  .color-swatch-option-handler {
+    background-color: var(--descriptionColor);
+    color: var(--descriptionColor-foreground);
   }
 }
