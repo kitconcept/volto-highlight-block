@@ -154,6 +154,16 @@
   }
 }
 
+.section-edit,
+.section-add {
+  .slate-toolbar {
+    min-width: unset;
+    .button-wrapper:last-child {
+      margin-right: 3px;
+    }
+  }
+}
+
 .color-picker-widget {
   button,
   .button {

@@ -30,10 +30,10 @@ declare module '@plone/types' {
 const HIGHLIGHT_COLORS = [
   {
     name: 'highlight-custom-color-1',
-    label: 'Black',
+    label: 'Grey',
     style: {
-      '--descriptionColor': '#000',
-      '--descriptionColor-foreground': '#fff',
+      '--descriptionColor': '#ECEBEB',
+      '--descriptionColor-foreground': '#000',
     },
   },
   {
@@ -78,10 +78,10 @@ const HIGHLIGHT_COLORS = [
   },
   {
     name: 'highlight-custom-color-7',
-    label: 'Grey',
+    label: 'Black',
     style: {
-      '--descriptionColor': '#ECEBEB',
-      '--descriptionColor-foreground': '#000',
+      '--descriptionColor': '#000',
+      '--descriptionColor-foreground': '#fff',
     },
   },
 ];

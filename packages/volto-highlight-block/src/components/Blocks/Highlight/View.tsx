@@ -19,6 +19,17 @@ const messages = defineMessages({
   },
 });
 
+// Slate toolbar buttons to hide in the Highlight description.
+const UNWANTED_SLATE_BUTTONS = [
+  'numbered-list',
+  'bulleted-list',
+  'blockquote',
+  'heading-two',
+  'heading-three',
+  'separator',
+  'styleMenu',
+];
+
 type HighlightViewProps = BlockEditProps & { isEditMode?: boolean };
 
 const HighlightView = (props: HighlightViewProps) => {
@@ -33,6 +44,16 @@ const HighlightView = (props: HighlightViewProps) => {
   } = props;
 
   const intl = useIntl();
+
+  const slateSettings = React.useMemo(() => {
+    const slate = config.settings.slate as any;
+    return {
+      ...slate,
+      toolbarButtons: slate.toolbarButtons.filter(
+        (name: string) => !UNWANTED_SLATE_BUTTONS.includes(name),
+      ),
+    };
+  }, []);
 
   const dataAdapter = blocksConfig.highlight.dataAdapter as (
     args: HighlightBlockDataAdapterArgs,
@@ -116,7 +137,10 @@ const HighlightView = (props: HighlightViewProps) => {
               </div>
               <div className="description">
                 {isEditMode ? (
-                  <DetachedTextBlockEditor {...props} />
+                  <DetachedTextBlockEditor
+                    {...props}
+                    slateSettings={slateSettings}
+                  />
                 ) : (
                   <TextBlockView {...props} />
                 )}

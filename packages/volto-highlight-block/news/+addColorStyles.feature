@@ -1,1 +1,0 @@
-Use only css props for styling. @danalvrz

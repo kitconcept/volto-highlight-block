@@ -63,16 +63,13 @@ export function HighlightSchema({
       {
         id: 'default',
         title: 'Default',
-        fields: ['url', 'headtitle', 'button', 'buttonLink', 'buttonText'],
+        fields: ['url', 'button', 'buttonLink', 'buttonText'],
       },
     ],
     properties: {
       url: {
         title: intl.formatMessage(messages.image),
         widget: 'image',
-      },
-      headtitle: {
-        title: intl.formatMessage(messages.headtitle),
       },
       button: {
         title: intl.formatMessage(messages.button),
