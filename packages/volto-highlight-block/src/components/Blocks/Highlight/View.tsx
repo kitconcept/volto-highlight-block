@@ -5,7 +5,7 @@ import { TextBlockView } from '@plone/volto-slate/blocks/Text';
 import { DetachedTextBlockEditor } from '@plone/volto-slate/blocks/Text/DetachedTextBlockEditor';
 import TextLineEdit from '@plone/volto/components/manage/TextLineEdit/TextLineEdit';
 import { flattenToAppURL, isInternalURL } from '@plone/volto/helpers/Url/Url';
-import ConditionalLink from '@plone/volto/components/manage/ConditionalLink/ConditionalLink';
+import UniversalLink from '@plone/volto/components/manage/UniversalLink/UniversalLink';
 import { useSelector } from 'react-redux';
 import config from '@plone/volto/registry';
 import { ImageInput } from '@plone/volto/components/manage/Widgets/ImageWidget';
@@ -61,7 +61,6 @@ const HighlightView = (props: HighlightViewProps) => {
 
   const request = useSelector((state: any) => state.content.subrequests[block]);
   const content = request?.data;
-  const buttonLink = data?.buttonLink?.[0] ? data?.buttonLink[0]['@id'] : '';
 
   let renderedImage = null;
   if (data.url) {
@@ -145,19 +144,22 @@ const HighlightView = (props: HighlightViewProps) => {
                   <TextBlockView {...props} />
                 )}
               </div>
-              {data?.button && (data?.buttonText || isEditMode) && (
-                <ConditionalLink
-                  to={buttonLink}
-                  condition={!isEditMode}
-                  item={data?.buttonLink?.[0]}
-                  className="button-link-wrapper"
-                >
+              {data?.button &&
+                (isEditMode ? (
                   <div className="button">
                     {data?.buttonText ||
                       intl.formatMessage(messages.buttonTextPlaceholder)}
                   </div>
-                </ConditionalLink>
-              )}
+                ) : (
+                  data?.buttonText && (
+                    <UniversalLink
+                      className="button"
+                      item={data?.buttonLink?.[0]}
+                    >
+                      {data?.buttonText}
+                    </UniversalLink>
+                  )
+                ))}
             </div>
           </div>
         </div>

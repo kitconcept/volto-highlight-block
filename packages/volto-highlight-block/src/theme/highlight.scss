@@ -82,6 +82,10 @@
 
           a {
             color: inherit;
+
+            &.external::after {
+              background-color: var(--descriptionColor-foreground);
+            }
           }
         }
 
@@ -90,9 +94,6 @@
         }
       }
 
-      a.button-link-wrapper {
-        text-decoration: none;
-      }
       .button {
         display: initial;
         padding: 8px 20px;
@@ -106,9 +107,17 @@
         text-align: center;
         text-decoration: none;
 
+        &.external::after {
+          background-color: var(--descriptionColor-foreground);
+        }
+
         &:hover {
           background: var(--descriptionColor-foreground);
           color: var(--descriptionColor) !important;
+
+          &.external::after {
+            background-color: var(--descriptionColor);
+          }
         }
       }
 
