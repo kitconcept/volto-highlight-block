@@ -186,7 +186,7 @@
 }
 
 .color-swatch-widget[class*='field-wrapper-descriptionColor'] {
-  div[aria-label='Description color'] {
+  div.react-aria-RadioGroup {
     flex-wrap: wrap;
   }
   .color-swatch-option-handler {
