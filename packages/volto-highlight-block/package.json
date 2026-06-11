@@ -1,6 +1,6 @@
 {
   "name": "@kitconcept/volto-highlight-block",
-  "version": "5.0.0-alpha.1",
+  "version": "5.0.0-alpha.2",
   "description": "volto-highlight-block: Volto add-on",
   "main": "src/index.ts",
   "license": "MIT",
