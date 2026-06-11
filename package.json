@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "@kitconcept/volto-highlight-block": "workspace:*",
-    "@kitconcept/volto-light-theme": "8.0.0-alpha.17",
+    "@kitconcept/volto-light-theme": "8.0.0-alpha.29",
     "@plone/registry": "workspace:*",
     "@plone/volto": "workspace:*"
   },
