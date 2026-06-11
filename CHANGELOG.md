@@ -8,6 +8,13 @@
 
 <!-- towncrier release notes start -->
 
+## 5.0.0-alpha.1 (2026-06-11)
+
+### Feature
+
+- Added pt-BR translations. @humanaice [#19](https://github.com/kitconcept/volto-highlight-block/issue/19)
+- Improve button implementation and update VLT version. @danalvrz 
+
 ## 5.0.0-alpha.0 (2026-06-05)
 
 ### Breaking

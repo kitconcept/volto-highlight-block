@@ -1,1 +1,0 @@
-Improve button implementation and update VLT version. @danalvrz
