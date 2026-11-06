@@ -64,7 +64,7 @@ Version 5 changes how the description colors are defined and rendered. The selec
 - **The volto-light-theme color fallback was removed.** Colors now come solely from the palette `style`.
 - **The default palette changed** (e.g. the first color is now `Grey` instead of `Medium Blue`), so default content will render with different colors.
 
-Version 5 also requires Volto 19 or later and adds an inline-editable **kicker** field above the title.
+Version 5 also requires Volto 19.6 or later and adds an inline-editable **kicker** field above the title.
 
 ## Screenshots
 
