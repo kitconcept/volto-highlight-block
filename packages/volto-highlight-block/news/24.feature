@@ -1,1 +1,0 @@
-The Highlight block now supports the `@blocks-schema` endpoint of Volto 19.6. The endpoint returns its schema and its documentation, which describes the data the block stores, for agents and generated reference documentation. Requires Volto 19.6 or later.

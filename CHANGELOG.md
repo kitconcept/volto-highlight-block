@@ -8,6 +8,12 @@
 
 <!-- towncrier release notes start -->
 
+## 5.2.0 (2026-11-06)
+
+### Feature
+
+- The Highlight block now supports the `@blocks-schema` endpoint of Volto 19.6. The endpoint returns its schema and its documentation, which describes the data the block stores, for agents and generated reference documentation. Requires Volto 19.6 or later. [#24](https://github.com/kitconcept/volto-highlight-block/issue/24)
+
 ## 5.1.0 (2026-11-06)
 
 ## 5.0.0 (2026-09-16)
