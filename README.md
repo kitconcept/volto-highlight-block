@@ -66,6 +66,8 @@ Version 5 changes how the description colors are defined and rendered. The selec
 
 Version 5 also requires Volto 19 or later and adds an inline-editable **kicker** field above the title.
 
+`@blocks-schema` support (the block schema and documentation that the Volto server publishes) is only available with Volto 19.6 or later. The add-on keeps working on earlier Volto 19 releases, without it.
+
 ## Screenshots
 
 ![Highlight block](https://github.com/kitconcept/volto-highlight-block/raw/main/screenshot.jpg)
