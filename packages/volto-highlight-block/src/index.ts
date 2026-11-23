@@ -5,13 +5,22 @@ import { HighlightSchema } from './components/Blocks/Highlight/schema';
 import presentationSVG from '@plone/volto/icons/presentation.svg';
 import type { ComponentType } from 'react';
 import type { ConfigType } from '@plone/registry';
-import type { BlockConfigBase, BlockViewProps } from '@plone/types';
+import type { BlockViewProps } from '@plone/types';
 import './theme/highlight.scss';
 import './theme/image-widget.scss';
 
 declare module '@plone/types' {
   export interface BlocksConfigData {
     highlight: BlockConfigBase;
+  }
+
+  export interface BlockConfigBase {
+    /**
+     * Keys that the blocks configuration of kitconcept-core may replace
+     * through the web, and the type of their value. Must stay identical to
+     * the declaration in kitconcept-core.
+     */
+    ttwConfigurable?: Record<string, string>;
   }
 
   export interface BlocksFormData {
@@ -100,12 +109,19 @@ const applyConfig = (config: ConfigType) => {
     dataAdapter: HighlightBlockDataAdapter,
     blockSchema: HighlightSchema,
     descriptionColors: HIGHLIGHT_COLORS,
+    // Lets the blocks configuration of kitconcept-core (`kitconcept.blocks.config`)
+    // replace the colors through the web.
+    ttwConfigurable: { descriptionColors: 'styleDefinitions' },
   };
 
   config.registerUtility({
     name: 'descriptionColor',
     type: 'styleFieldDefinition',
-    method: (props: { data: any; container: any }) => HIGHLIGHT_COLORS,
+    // Read the colors from the block config at render time, so changes to it
+    // after startup (for example, through the web) are applied to the page too.
+    method: (props: { data: any; container: any }) =>
+      (config.blocks.blocksConfig.highlight as any)?.descriptionColors ||
+      HIGHLIGHT_COLORS,
   });
 
   return config;
