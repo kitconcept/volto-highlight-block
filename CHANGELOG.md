@@ -8,6 +8,12 @@
 
 <!-- towncrier release notes start -->
 
+## 5.3.0 (2026-11-24)
+
+### Feature
+
+- Let the blocks configuration of kitconcept-core (`kitconcept.blocks.config`) replace the description colors through the web: list `descriptionColors` in `ttwConfigurable`, and read the colors from the block configuration when rendering the page. @sneridagh 
+
 ## 5.2.0 (2026-11-06)
 
 ### Feature
